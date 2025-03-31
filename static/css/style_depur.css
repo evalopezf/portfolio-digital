@@ -658,7 +658,7 @@ font-weight: bold;
 }
 
 .subtitulo {
-  font-weight: bold;
+  
   margin-top: 10px;
   font-size: 15px;
 }
@@ -889,6 +889,7 @@ hr {
   width: 100%;
   font-size: 12px;
   max-width: 120ch; /* Ajusta el ancho máximo del párrafo */
+  text-align:justify;
 }
   
 
