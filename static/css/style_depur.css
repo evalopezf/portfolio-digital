@@ -1114,11 +1114,9 @@ hr {
   }
 
   #carrousel-window {
-    width: 50vw;
-
-    top: 15vh;
-    left: 50%;
-    transform: translateX(-50%);
+  width: 50vw;
+  top: 15vh;
+  left: calc(50vw - 25vw);
 
   }
 }
