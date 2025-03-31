@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Mi Portfolio{% endblock %}</title>
-    <link rel="stylesheet" href="css/style_depur.css">
+    <link rel="stylesheet" href="static/css/style_depur.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
@@ -56,14 +56,14 @@
 
             <a href="#" class="open-window icon-wrapper" id="llave" data-target="#digital-window">
               <div class="icon">
-                  <img src="images/llave.png" alt="">
+                  <img src="static/images/llave.png" alt="">
               </div>
               <p class="p-llave">Herramientas  digitales</p>
           </a>
   
     
           <div class="icon-gif">
-            <img src="images/sticker.png" alt="">
+            <img src="static/images/sticker.png" alt="">
           </div>
     
       </div>
@@ -137,7 +137,7 @@
                   <div class="window" id="carrousel-window" style="display: none;">
                     <div class="window-bar">
                       <div class="window-title">
-                        <img src="{{ url_for('static', filename='images/icon_lab.png') }}" alt=""> Prácticas de Cultivo in vitro
+                        <img src="{{ url_for('static', filename='static/images/icon_lab.png') }}" alt=""> Prácticas de Cultivo in vitro
                       </div>
                       <div class="button close-button">&times;</div>
                     </div>
@@ -146,16 +146,16 @@
                         <button class="prev">⟨</button>
                         <div class="carrusel-contenido">
                           <div class="slide activo">
-                            <img src="images/uvas.jpg" alt="Foto 1">
+                            <img src="static/images/uvas.jpg" alt="Foto 1">
                           </div>
                           <div class="slide">
                             <video controls>
-                              <source src="images/video.mp4">
+                              <source src="static/images/video.mp4">
                             </video>
                           </div>
                           
                           <div class="slide">
-                            <img src="images/autoclave.jpg" alt="Foto 2">
+                            <img src="static/images/autoclave.jpg" alt="Foto 2">
                           </div>
                         </div>
                         <button class="next">⟩</button>
@@ -291,7 +291,7 @@
               </a>
                 <a href="#" class="open-window icon-wrapper" data-target="#momentum-window">
                   <div class="icon icon-small">
-                        <img src="{{ url_for('static', filename='images/momentum.png') }}" alt="">
+                        <img src="{{ url_for('static', filename='static/images/momentum.png') }}" alt="">
                     </div>
                     <p class="p-project">Momentum</p>
                 </a>
@@ -518,11 +518,11 @@
         
             <h3>💻 Lenguajes de Programación</h3>
             <div class="iconos-flex">
-                <div class="icono-item"><img src="{{ url_for('static', filename='images/python.png') }}" class="icono-competencia"><span>Python</span></div>
-                <div class="icono-item"><img src="{{ url_for('static', filename='images/R.png') }}" class="icono-competencia"><span>R</span></div>
-                <div class="icono-item"><img src="{{ url_for('static', filename='images/bash.png') }}" class="icono-competencia"><span>Bash</span></div>
-                <div class="icono-item"><img src="{{ url_for('static', filename='images/SQL.png') }}" class="icono-competencia"><span>SQL</span></div>
-                <div class="icono-item"><img src="{{ url_for('static', filename='images/js.png') }}" class="icono-competencia"><span>JavaScript</span></div>
+                <div class="icono-item"><img src="{{ url_for('static', filename='static/images/python.png') }}" class="icono-competencia"><span>Python</span></div>
+                <div class="icono-item"><img src="{{ url_for('static', filename='static/images/R.png') }}" class="icono-competencia"><span>R</span></div>
+                <div class="icono-item"><img src="{{ url_for('static', filename='static/images/bash.png') }}" class="icono-competencia"><span>Bash</span></div>
+                <div class="icono-item"><img src="{{ url_for('static', filename='static/images/SQL.png') }}" class="icono-competencia"><span>SQL</span></div>
+                <div class="icono-item"><img src="{{ url_for('static', filename='static/images/js.png') }}" class="icono-competencia"><span>JavaScript</span></div>
             </div>
         
             <hr>
@@ -550,24 +550,24 @@
         
             <h3>🖥️ Entornos y Terminal</h3>
             <div class="iconos-flex">
-                <div class="icono-item"><img src="{{ url_for('static', filename='images/linux.png') }}" class="icono-competencia"><span>Linux/WSL</span></div>
-                <div class="icono-item"><img src="{{ url_for('static', filename='images/slurm.png') }}" class="icono-competencia"><span>SLURM</span></div>
+                <div class="icono-item"><img src="{{ url_for('static', filename='static/images/linux.png') }}" class="icono-competencia"><span>Linux/WSL</span></div>
+                <div class="icono-item"><img src="{{ url_for('static', filename='static/images/slurm.png') }}" class="icono-competencia"><span>SLURM</span></div>
             </div>
         
             <hr>
         
             <h3>🗃️ Bases de Datos</h3>
             <div class="iconos-flex">
-                <div class="icono-item"><img src="{{ url_for('static', filename='images/psql.png') }}" class="icono-competencia"><span>PostgreSQL</span></div>
-                <div class="icono-item"><img src="{{ url_for('static', filename='images/mysql.png') }}" class="icono-competencia"><span>MySQL</span></div>
+                <div class="icono-item"><img src="{{ url_for('static', filename='static/images/psql.png') }}" class="icono-competencia"><span>PostgreSQL</span></div>
+                <div class="icono-item"><img src="{{ url_for('static', filename='static/images/mysql.png') }}" class="icono-competencia"><span>MySQL</span></div>
             </div>
         
             <hr>
         
             <h3>🌐 Desarrollo Web</h3>
             <div class="iconos-flex">
-                <div class="icono-item"><img src="{{ url_for('static', filename='images/flask.png') }}" class="icono-competencia"><span>Flask</span></div>
-                <div class="icono-item"><img src="{{ url_for('static', filename='images/tail.png') }}" class="icono-competencia"><span>Tailwind</span></div>
+                <div class="icono-item"><img src="{{ url_for('static', filename='static/images/flask.png') }}" class="icono-competencia"><span>Flask</span></div>
+                <div class="icono-item"><img src="{{ url_for('static', filename='static/images/tail.png') }}" class="icono-competencia"><span>Tailwind</span></div>
             </div>
         </div>
         
@@ -603,7 +603,7 @@
               <div class="perfil-principal">
                 <div class="foto-y-info">
                   <div class="foto-perfil">
-                    <img src="{{ url_for('static', filename='images/perfil.jpg') }}" alt="Foto de Eva">
+                    <img src="{{ url_for('static', filename='static/images/perfil.jpg') }}" alt="Foto de Eva">
                   </div>
                   <div class="info-personal">
                     <h2>Eva López-Fernández</h2>
