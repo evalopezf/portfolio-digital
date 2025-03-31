@@ -3,8 +3,7 @@ $(document).ready(function () {
         e.preventDefault();
         const target = $(this).data("target");
 
-        // Oculta otras ventanas si quieres efecto "una a la vez"
-        // $(".window").hide();
+        $(".window").hide();
 
         // Eleva el z-index de la ventana seleccionada
         $(".window").css("z-index", "3000");
@@ -16,7 +15,6 @@ $(document).ready(function () {
         //     left: "calc(50% - " + ($(target).outerWidth() / 2) + "px)"
         // });
     });
-
     $(".close-button").click(function () {
       const ventana = $(this).closest(".window");
   
@@ -29,14 +27,6 @@ $(document).ready(function () {
       ventana.fadeOut();
   });
 });
-
-
-
-function mostrarDiploma(event) {
-  event.preventDefault(); // evita que el enlace recargue la página
-const ventana = document.getElementById("ventana-diploma");
-ventana.style.display = ventana.style.display === "block" ? "none" : "block";
-}
 
 
 // social window
@@ -76,6 +66,8 @@ $(document).ready(function() {
         containment: "body"
     });
 });
+
+
 $(document).ready(function () {
   const $slides = $('#carrousel-window .slide');
   let currentSlide = 0;
