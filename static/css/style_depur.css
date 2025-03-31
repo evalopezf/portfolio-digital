@@ -164,7 +164,7 @@ a {
   position: absolute;
   bottom: 150px; /* Ajusta según necesites */
   left: 55vw; /* Centra más o menos bajo el recuadro */
-  z-index: 4000;
+  z-index: 3000;
 }
 
 .icon-gif img {
@@ -402,7 +402,7 @@ font-weight: bold;
   border: 2px solid black;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   padding: 1.5vw;
-  z-index: 3000; /* Asegura que esté por encima de otros elementos */
+  z-index: 2000; /* Asegura que esté por encima de otros elementos */
 
 }
 
@@ -658,9 +658,9 @@ font-weight: bold;
 }
 
 .subtitulo {
-  
+  font-weight: bold;
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 hr {
@@ -889,7 +889,6 @@ hr {
   width: 100%;
   font-size: 12px;
   max-width: 120ch; /* Ajusta el ancho máximo del párrafo */
-  text-align:justify;
 }
   
 
@@ -1086,9 +1085,8 @@ hr {
   display: flex;
 }
 
-
 #carrousel-window{
-  width: 50vw;
+  width: 30vw;
 
 
 }
