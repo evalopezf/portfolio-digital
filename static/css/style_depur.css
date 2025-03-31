@@ -1116,7 +1116,6 @@ hr {
   #carrousel-window {
   width: 50vw;
   top: 15vh;
-  left: calc(50vw - 25vw);
 
   }
 }
