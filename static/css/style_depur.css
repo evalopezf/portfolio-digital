@@ -1114,7 +1114,8 @@ hr {
   }
 
   #carrousel-window {
-    width: 50vw;
+    width: 30vw;
+    height:50vh;
   }
 }
 
