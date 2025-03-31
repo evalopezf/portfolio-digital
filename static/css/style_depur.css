@@ -1116,6 +1116,10 @@ hr {
   #carrousel-window {
     width: 50vw;
 
+    top: 15vh;
+    left: 50%;
+    transform: translateX(-50%);
+
   }
 }
 
