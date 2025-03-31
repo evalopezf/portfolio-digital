@@ -303,6 +303,13 @@ font-size: 9px;
 font-weight: bold;
 }
 
+.nav-links li a:hover {
+  background-color: black; /* o cualquier color que prefieras */
+  color: white; /* color del texto al pasar el ratón */
+  border-radius: 4px; /* opcional, para esquinas redondeadas */
+  transition: all 0.3s ease;
+}
+
 @media (min-width: 600px) {
 .nav-links li a {
   font-size: 20px;
