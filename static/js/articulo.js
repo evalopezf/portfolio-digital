@@ -1,20 +1,20 @@
 $(document).ready(function () {
-    $(".open-window").click(function (e) {
-        e.preventDefault();
-        const target = $(this).data("target");
+  $(".open-window").click(function (e) {
+    e.preventDefault();
+    const target = $(this).data("target");
 
-        $(".window").hide();
+    $(target).fadeIn(); // Asegúrate de que se muestre
 
-        // Eleva el z-index de la ventana seleccionada
-        $(".window").css("z-index", "3000");
-        $(target).css("z-index", "4000").fadeIn();
-
-        // Opcional: centra la ventana en pantalla
-        // $(target).css({
-        //     top: "10vh",
-        //     left: "calc(50% - " + ($(target).outerWidth() / 2) + "px)"
-        // });
+    // Calcular el z-index más alto actual entre ventanas
+    let maxZ = 3000;
+    $(".window").each(function () {
+        const z = parseInt($(this).css("z-index")) || 0;
+        if (z > maxZ) maxZ = z;
     });
+
+    // Elevar la ventana seleccionada
+    $(target).css("z-index", maxZ + 1);
+});
     $(".close-button").click(function () {
       const ventana = $(this).closest(".window");
   
@@ -27,6 +27,10 @@ $(document).ready(function () {
       ventana.fadeOut();
   });
 });
+
+
+
+
 
 
 // social window
