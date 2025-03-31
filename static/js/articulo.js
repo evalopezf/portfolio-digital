@@ -18,7 +18,15 @@ $(document).ready(function () {
     });
 
     $(".close-button").click(function () {
-        $(this).closest(".window").fadeOut();
+        const ventana = $(this).closest(".window");
+    
+        // Detener todos los videos dentro de la ventana
+        ventana.find("video").each(function () {
+            this.pause();
+            this.currentTime = 0; // opcional: vuelve al inicio
+        });
+    
+        ventana.fadeOut();
     });
 });
 
