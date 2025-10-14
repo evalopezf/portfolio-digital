@@ -7,8 +7,930 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="static/css/style_depur.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
+        :root {
+            --primary-dark: #1a1f36;
+            --primary-blue: #2563eb;
+            --primary-light: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-tertiary: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Header científico */
+        .header-cientifica {
+            background: var(--primary-dark);
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-area h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-area p {
+            font-size: 0.875rem;
+            color: var(--accent-cyan);
+            font-weight: 500;
+        }
+
+        .nav-principal {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .nav-btn {
+            padding: 0.625rem 1.25rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.primary {
+            background: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        .nav-btn.primary:hover {
+            background: var(--primary-light);
+            border-color: var(--primary-light);
+        }
+
+        /* Área principal */
+        .main-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem 2rem;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 968px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-primary);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-color);
+        }
+
+        .profile-card {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-blue);
+            object-fit: cover;
+            margin: 0 auto 1rem;
+        }
+
+        .profile-card h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .profile-card .subtitle {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            color: white;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .quick-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .quick-link {
+            padding: 0.75rem;
+            background: var(--bg-secondary);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .quick-link:hover {
+            background: var(--bg-primary);
+            border-color: var(--primary-blue);
+            transform: translateX(4px);
+        }
+
+        /* Contenido principal */
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .hero-card {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #2d3748 100%);
+            color: white;
+            border-radius: 1rem;
+            padding: 3rem;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-card h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .hero-card p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            position: relative;
+        }
+
+        /* Grid de secciones */
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .section-card {
+            background: var(--bg-primary);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .section-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl), 0 0 0 2px var(--primary-blue);
+        }
+
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .section-card h3 {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .section-card p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* Ventanas modales científicas */
+        .modal-window {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 2rem 0;
+        }
+
+        .modal-content {
+            background: var(--bg-primary);
+            max-width: 1200px;
+            width: 95%;
+            margin: 2rem auto;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+            animation: modalSlideIn 0.3s ease-out;
+            max-height: calc(100vh - 4rem);
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            background: var(--primary-dark);
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .close-modal {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1.25rem;
+            transition: all 0.2s;
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-body {
+            padding: 2.5rem;
+            max-height: calc(100vh - 200px);
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .modal-body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal-body::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        .modal-body::-webkit-scrollbar-thumb {
+            background: var(--primary-blue);
+            border-radius: 4px;
+        }
+
+        /* Contenido de formación */
+        .formacion-item {
+            background: var(--bg-secondary);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .formacion-item h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .formacion-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .formacion-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--bg-primary);
+            border-radius: 0.5rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .meta-item strong {
+            color: var(--text-primary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-category h4 {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category li::before {
+            content: '▸';
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        /* Sección de logros/proyectos dentro de formación */
+        .achievements-section {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .achievements-section h4 {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .achievement-item {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            transition: all 0.2s;
+        }
+
+        .achievement-item:hover {
+            box-shadow: var(--shadow-sm);
+            transform: translateX(4px);
+        }
+
+        .achievement-icon {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .achievement-content {
+            flex: 1;
+        }
+
+        .achievement-content p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .achievement-content strong {
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Proyectos */
+        .proyecto-item {
+            background: var(--bg-secondary);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent-cyan);
+        }
+
+        .proyecto-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .proyecto-header h3 {
+            color: var(--primary-dark);
+            font-size: 1.35rem;
+            margin: 0;
+            flex: 1;
+        }
+
+        .proyecto-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .proyecto-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .proyecto-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .detail-box {
+            background: var(--bg-primary);
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .detail-box h4 {
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .detail-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .detail-box li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .detail-box li::before {
+            content: '•';
+            color: var(--accent-cyan);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .proyecto-actions {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed var(--border-color);
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 0.625rem 1.25rem;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .action-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .action-btn.secondary {
+            background: var(--bg-primary);
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+        }
+
+        .action-btn.secondary:hover {
+            background: var(--bg-secondary);
+        }
+
+        /* Herramientas digitales */
+        .tools-section {
+            margin-top: 1.5rem;
+        }
+
+        .tools-category {
+            margin-bottom: 2rem;
+        }
+
+        .tools-category h3 {
+            font-size: 1.125rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 1rem;
+        }
+
+        .tool-item {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            transition: all 0.2s;
+            border: 1px solid var(--border-color);
+        }
+
+        .tool-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-blue);
+        }
+
+        .tool-item span {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Footer científico */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.875rem;
+            opacity: 0.8;
+            margin: 0.25rem 0;
+        }
+
+        footer a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-principal {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .hero-card {
+                padding: 2rem;
+            }
+
+            .hero-card h1 {
+                font-size: 1.75rem;
+            }
+
+            .main-container {
+                padding: 0 1rem 1rem;
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+            }
+
+            .proyecto-details,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .proyecto-header {
+                flex-direction: column;
+            }
+
+            .formacion-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+        /* Índice de proyectos */
+.proyectos-index {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.index-card {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 2px solid var(--border-color);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.index-card:hover {
+    border-color: var(--primary-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.02) 0%, rgba(6, 182, 212, 0.02) 100%);
+}
+
+.index-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.index-content {
+    flex: 1;
+}
+
+.index-content h4 {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.index-content p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.index-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--primary-blue);
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: 9999px;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+/* Scroll suave dentro del modal */
+.modal-body {
+    scroll-behavior: smooth;
+}
+
+/* Responsive para índice */
+@media (max-width: 768px) {
+    .proyectos-index {
+        padding: 1.5rem;
+    }
+
+    .index-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .index-card {
+        padding: 1.25rem;
+    }
+
+    .index-icon {
+        font-size: 2rem;
+    }
+}
+/* Secciones desplegables/collapsibles */
+.collapsible-section {
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.collapsible-header {
+    cursor: pointer;
+    padding: 1rem 1.25rem;
+    background: var(--bg-secondary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    user-select: none;
+    transition: all 0.2s;
+}
+
+.collapsible-header:hover {
+    background: var(--bg-tertiary);
+}
+
+.collapsible-section.active .collapsible-header {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.collapse-icon {
+    font-size: 0.75rem;
+    color: var(--primary-blue);
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.collapsible-section.active .collapse-icon {
+    transform: rotate(90deg);
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    padding: 0 1.25rem;
+}
+
+.collapsible-section.active .collapsible-content {
+    max-height: 2000px;
+    padding: 1.25rem;
+}
+
+/* Ajuste para elementos dentro del contenido colapsable */
+.collapsible-content .achievement-item {
+    margin-bottom: 0.75rem;
+}
+
+.collapsible-content .achievement-item:last-child {
+    margin-bottom: 0;
+}
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -35,10 +957,12 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="card profile-card">
-                <img src="https://via.placeholder.com/120" alt="Eva López-Fernández" class="profile-img">
+                <img src="{{ url_for('static', filename='images/perfil.jpg') }}" alt="Eva López-Fernández" class="profile-img">
                 <h2>Eva López-Fernández</h2>
                 <p class="subtitle">Investigadora Predoctoral</p>
-                <span class="badge">🧬 Bioinformática</span>
+                <span class="badge">🧬 Bioquímica</span>
+                <span class="badge">💻 Bioinformática</span>
+
                 
                 <div class="quick-links">
                     <a href="https://www.linkedin.com/in/eva-mar%C3%ADa-l%C3%B3pez-fern%C3%A1ndez-24a59821a/" target="_blank" class="quick-link">
@@ -67,7 +991,7 @@
         <main class="content-area">
             <!-- Hero -->
             <div class="hero-card">
-                <h1>Bienvenido a mi portfolio científico</h1>
+                <h1>Bienvenido a mi portfolio </h1>
                 <p>Graduada en Bioquímica con Máster en Bioinformática por la Universidad de Murcia. Actualmente trabajo como investigadora predoctoral en el CEBAS-CSIC, donde aplico técnicas de análisis de datos ómicos y desarrollo de herramientas digitales para la mejora genética de frutales. Mi objetivo es integrar biología computacional y biotecnología para resolver problemas complejos en investigación científica.</p>
             </div>
 
@@ -113,91 +1037,535 @@
     </div>
 
     <!-- Modal: Formación -->
-    <div id="formacion-modal" class="modal-window">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Formación Académica</h2>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="formacion-item">
-                    <h3>🎓 Grado en Bioquímica - Universidad de Murcia</h3>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h4>Soft Skills</h4>
-                            <ul>
-                                <li>Trabajo en equipo</li>
-                                <li>Comunicación</li>
-                                <li>Adaptabilidad</li>
-                            </ul>
+<div id="formacion-modal" class="modal-window">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Formación Académica</h2>
+            <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            
+            <!-- ÍNDICE DE FORMACIÓN -->
+            <div class="proyectos-index">
+                <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 1rem;">📑 Índice de Formación</h3>
+                <div class="index-grid">
+                    <a href="#formacion-bioquimica" class="index-card" onclick="document.getElementById('formacion-bioquimica').scrollIntoView({behavior: 'smooth'}); return false;">
+                        <div class="index-icon">🎓</div>
+                        <div class="index-content">
+                            <h4>Grado en Bioquímica</h4>
+                            <p>Fundamentos biomoleculares y técnicas de laboratorio</p>
+                            <span class="index-tag">UMU • 2017-2021</span>
                         </div>
-                        <div class="skill-category">
-                            <h4>Hard Skills</h4>
-                            <ul>
-                                <li>Fundamentos biomoleculares</li>
-                                <li>Técnicas de laboratorio</li>
-                                <li>Cultivo in vitro</li>
-                            </ul>
+                    </a>
+
+                    <a href="#formacion-master" class="index-card" onclick="document.getElementById('formacion-master').scrollIntoView({behavior: 'smooth'}); return false;">
+                        <div class="index-icon">🧬</div>
+                        <div class="index-content">
+                            <h4>Máster en Bioinformática</h4>
+                            <p>Análisis de datos ómicos y programación científica</p>
+                            <span class="index-tag">UMU • 2021-2022 • Premio TFM</span>
+                        </div>
+                    </a>
+
+                    <a href="#formacion-complementaria" class="index-card" onclick="document.getElementById('formacion-complementaria').scrollIntoView({behavior: 'smooth'}); return false;">
+                        <div class="index-icon">📚</div>
+                        <div class="index-content">
+                            <h4>Formación Complementaria</h4>
+                            <p>Cursos especializados en programación y ciencia</p>
+                            <span class="index-tag">Certificaciones</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 2px dashed var(--border-color);">
+
+            <!-- GRADO EN BIOQUÍMICA -->
+            <div id="formacion-bioquimica" class="formacion-item">
+                <h3>🎓 Grado en Bioquímica</h3>
+                <div class="formacion-meta">
+                    <div class="meta-item">
+                        <span>🏛️</span>
+                        <span><strong>Universidad de Murcia</strong></span>
+                    </div>
+                    <div class="meta-item">
+                        <span>📅</span>
+                        <span>2017 - 2021</span>
+                    </div>
+                </div>
+                <p class="formacion-description">
+                    Formación integral en fundamentos biomoleculares, rutas metabólicas, genética, biología molecular y fisiología vegetal. Experiencia práctica en técnicas de laboratorio incluyendo PCR, electroforesis, cultivo in vitro y espectrofotometría.
+                </p>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Soft Skills</h4>
+                        <ul>
+                            <li>Trabajo en equipo multidisciplinar</li>
+                            <li>Comunicación efectiva</li>
+                            <li>Adaptabilidad</li>
+                            <li>Resolución de problemas</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Hard Skills</h4>
+                        <ul>
+                            <li>Fundamentos biomoleculares y rutas metabólicas</li>
+                            <li>Técnicas analíticas (PCR, electroforesis)</li>
+                            <li>Cultivo in vitro y microbiología</li>
+                            <li>Espectrofotometría y análisis químico</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="achievements-section">
+                    <h4>🏆 Proyectos y Logros</h4>
+                    <div class="achievement-item">
+                        <span class="achievement-icon">🔬</span>
+                        <div class="achievement-content">
+                            <strong>Prácticas en Laboratorio - Cultivo in vitro</strong>
+                            <p>Desarrollo de habilidades prácticas en propagación vegetal mediante técnicas de cultivo in vitro. Manejo de cámara de flujo laminar, esterilización y protocolos de micropropagación.</p>
+                        </div>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-icon">📄</span>
+                        <div class="achievement-content">
+                            <strong>Trabajo Fin de Grado - Criopreservación</strong>
+                            <p>Estudio de técnicas de criopreservación y su aplicación en la conservación de germoplasma vegetal. Análisis de viabilidad celular post-crioconservación.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÁSTER EN BIOINFORMÁTICA -->
+            <div id="formacion-master" class="formacion-item">
+                <h3>🧬 Máster en Bioinformática</h3>
+                <div class="formacion-meta">
+                    <div class="meta-item">
+                        <span>🏛️</span>
+                        <span><strong>Universidad de Murcia</strong></span>
+                    </div>
+                    <div class="meta-item">
+                        <span>📅</span>
+                        <span>2021 - 2022</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>🏅</span>
+                        <span style="color: var(--accent-cyan); font-weight: 600;">Premio mejor TFM</span>
+                    </div>
+                </div>
+                <p class="formacion-description">
+                    Especialización en análisis de datos ómicos, programación científica y desarrollo de pipelines bioinformáticos. Enfoque en genómica, transcriptómica y epigenómica utilizando tecnologías de secuenciación de última generación.
+                </p>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Soft Skills</h4>
+                        <ul>
+                            <li>Pensamiento analítico y crítico</li>
+                            <li>Comunicación científica oral y escrita</li>
+                            <li>Gestión del tiempo y proyectos</li>
+                            <li>Trabajo autónomo e investigación</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Hard Skills</h4>
+                        <ul>
+                            <li>Análisis de secuencias y expresión génica</li>
+                            <li>Programación (Bash, R, Python)</li>
+                            <li>Gestión y visualización de Big Data</li>
+                            <li>HPC con SLURM y pipelines</li>
+                            <li>Control de versiones (Git)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="achievements-section">
+                    <h4>🏆 Proyectos y Logros</h4>
+                    <div class="achievement-item">
+                        <span class="achievement-icon">💻</span>
+                        <div class="achievement-content">
+                            <strong>Matrícula de Honor - Modelado Molecular</strong>
+                            <p>Excelencia académica en la asignatura de Modelado Molecular, aplicando técnicas computacionales para el estudio de estructuras proteicas y simulaciones moleculares.</p>
+                        </div>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-icon">🧬</span>
+                        <div class="achievement-content">
+                            <strong>Trabajo Fin de Máster - Retrotransposones SVA</strong>
+                            <p>Análisis genómico y epigenómico de retrotransposones SVA mediante Oxford Nanopore. Desarrollo de pipeline para identificación y caracterización de inserciones patogénicas.</p>
+                        </div>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-icon">🏆</span>
+                        <div class="achievement-content">
+                            <strong>Premio al Mejor TFM de la Promoción 2022</strong>
+                            <p>Reconocimiento por la calidad científica, innovación metodológica y relevancia clínica del trabajo de investigación sobre retrotransposones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORMACIÓN COMPLEMENTARIA -->
+            <div id="formacion-complementaria" class="formacion-item">
+                <h3>📚 Formación Complementaria</h3>
+                <p class="formacion-description">
+                    Cursos especializados que complementan mi formación académica y amplían mis competencias digitales y científicas.
+                </p>
+                
+                <div class="achievements-section">
+                    <h4>💻 Competencias Digitales</h4>
+                    <div class="achievement-item">
+                        <span class="achievement-icon">🐍</span>
+                        <div class="achievement-content">
+                            <strong>Curso de Programación en Python</strong>
+                            <p>Fundamentos de programación, estructuras de datos, programación orientada a objetos y desarrollo de scripts para análisis de datos.</p>
+                        </div>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-icon">📊</span>
+                        <div class="achievement-content">
+                            <strong>Introducción a R y RStudio</strong>
+                            <p>Análisis estadístico, visualización de datos con ggplot2 y bioinformática con Bioconductor.</p>
+                        </div>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-icon">☕</span>
+                        <div class="achievement-content">
+                            <strong>Introducción a la Programación en Java</strong>
+                            <p>Conceptos básicos de programación orientada a objetos, estructuras de control y desarrollo de aplicaciones.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                        <span class="achievement-icon">☕</span>
+                        <div class="achievement-content">
+                            <strong>Advanced Course: Applications of Artificial Intelligence in the agrifood sector - CIHEAM</strong>
+                            <p>He aprendido sobre casos de estudio reales y las diversas posibilidades de aplicación de la inteligencia artificial en el sector agroalimentario, desde la producción agrícola y ganadera hasta la industria y la gestión sostenible.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="formacion-item">
-                    <h3>🧬 Máster en Bioinformática - Universidad de Murcia</h3>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h4>Soft Skills</h4>
-                            <ul>
-                                <li>Pensamiento analítico</li>
-                                <li>Comunicación científica</li>
-                                <li>Gestión del tiempo</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Hard Skills</h4>
-                            <ul>
-                                <li>Análisis de secuencias</li>
-                                <li>Programación (Bash, R, Python)</li>
-                                <li>Visualización de datos</li>
-                                <li>HPC y automatización</li>
-                            </ul>
+
+
+
+
+                <div class="achievements-section" style="margin-top: 1rem;">
+                    <h4>🔬 Otras Competencias</h4>
+                    <div class="achievement-item">
+                        <span class="achievement-icon">🧬</span>
+                        <div class="achievement-content">
+                            <strong>Fundamentos de Genética Forense Humana</strong>
+                            <p>Curso sobre genética forense aplicada a la investigación criminal, aspectos técnicos de análisis de ADN y consideraciones legales.</p>
                         </div>
                     </div>
-                    <p style="margin-top: 1rem; color: var(--primary-blue); font-weight: 600;">
-                        🏆 Premio al mejor TFM de la promoción
-                    </p>
                 </div>
             </div>
+
         </div>
     </div>
-
+</div>
     <!-- Modal: Proyectos -->
-    <div id="proyectos-modal" class="modal-window">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Proyectos de Investigación</h2>
-                <button class="close-modal">&times;</button>
+<!-- Modal: Proyectos -->
+<div id="proyectos-modal" class="modal-window">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Proyectos de Investigación</h2>
+            <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            
+            <!-- ÍNDICE DE PROYECTOS -->
+            <div class="proyectos-index">
+                <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 1rem;">📑 Índice de Proyectos</h3>
+                <div class="index-grid">
+                    <a href="#proyecto-sva" class="index-card" onclick="document.getElementById('proyecto-sva').scrollIntoView({behavior: 'smooth'}); return false;">
+                        <div class="index-icon">🧬</div>
+                        <div class="index-content">
+                            <h4>Retrotransposones SVA</h4>
+                            <p>Análisis genómico y epigenómico con Oxford Nanopore</p>
+                            <span class="index-tag">TFM • 2024</span>
+                        </div>
+                    </a>
+
+                    <a href="#proyecto-momentum" class="index-card" onclick="document.getElementById('proyecto-momentum').scrollIntoView({behavior: 'smooth'}); return false;">
+                        <div class="index-icon">🌱</div>
+                        <div class="index-content">
+                            <h4>Proyecto Momentum</h4>
+                            <p>Ecosistema digital para mejora genética de frutales</p>
+                            <span class="index-tag">CEBAS-CSIC • En curso</span>
+                        </div>
+                    </a>
+
+                    <!-- <a href="#contexto-cientifico" class="index-card" onclick="document.getElementById('contexto-cientifico').scrollIntoView({behavior: 'smooth'}); return false;">
+                        <div class="index-icon">📚</div>
+                        <div class="index-content">
+                            <h4>Contexto Científico</h4>
+                            <p>Información sobre retrotransposones y elementos móviles</p>
+                            <span class="index-tag">Fundamentos</span>
+                        </div>
+                    </a> -->
+                </div>
             </div>
-            <div class="modal-body">
-                <div class="formacion-item">
-                    <h3>🧬 Retrotransposones SVA (TFM)</h3>
-                    <p style="margin-bottom: 1rem; line-height: 1.8;">
-                        Estudio genómico y epigenómico de retrotransposones SVA en pacientes con deficiencia de antitrombina mediante tecnología Oxford Nanopore. Caracterización de inserciones causantes de la enfermedad.
-                    </p>
-                    <a href="https://github.com/evalopezf/Trabajo_Fin_de_Master.git" target="_blank" style="color: var(--primary-blue); font-weight: 600; text-decoration: none;">
-                        Ver repositorio en GitHub →
+
+            <hr style="margin: 2rem 0; border: none; border-top: 2px dashed var(--border-color);">
+
+
+            <!-- PROYECTO 1: SVA -->
+            <div id="proyecto-sva"  class="proyecto-item">
+                <div class="proyecto-header">
+                    <h3>🧬 Retrotransposones SVA</h3>
+                    <div class="proyecto-tags">
+                        <span class="tag">Genómica</span>
+                        <span class="tag">Epigenómica</span>
+                        <span class="tag">Oxford Nanopore</span>
+                        <span class="tag">TFM</span>
+                    </div>
+                </div>
+                
+                <p class="proyecto-description">
+                    Este proyecto desarrollado durante mi Trabajo Fin de Máster se centró en el estudio <strong>genómico y epigenómico</strong> de retrotransposones SVA en pacientes con deficiencia de antitrombina mediante la tecnología de <strong>Oxford Nanopore</strong>. A lo largo del análisis empleé herramientas bioinformáticas especializadas como Sniffles para la detección de variantes estructurales y RepeatMasker para la identificación de elementos repetitivos, logrando filtrar y caracterizar inserciones específicas responsables de la enfermedad.
+                </p>
+
+                <div class="proyecto-details">
+                    <div class="detail-box">
+                        <h4>🎯 Objetivos</h4>
+                        <ul>
+                            <li>Identificar inserciones de retrotransposones SVA mediante secuenciación Nanopore</li>
+                            <li>Caracterizar patrones de metilación en regiones de inserción</li>
+                            <li>Caracterización de la estructuras de los retrotransposones/li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-box">
+                        <h4>🛠️ Metodología</h4>
+                        <ul>
+                            <li>Procesamiento de lecturas largas, basecalling</li>
+                            <li>Alineamiento con minimap2</li>
+                            <li>Detección de variantes estructurales con Sniffles</li>
+                            <li>Análisis de metilación con Methylartist</li>
+                            <li>Anotación de repetitivos con RepeatMasker</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-box">
+                        <h4>📊 Resultados Clave</h4>
+                        <ul>
+                            <li>Confiramción de identificación de  inserciones SVA patogénicas en el gen SERPINC1</li>
+                            <li>Caracterización del patrón de metilación diferencial</li>
+                            <li>Desarrollo de pipeline automatizado para análisis</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-box">
+                        <h4>🔬 Tecnologías Utilizadas</h4>
+                        <ul>
+                            <li>Oxford Nanopore PromethION</li>
+                            <li>Python, Bash, R para análisis</li>
+                            <li>SLURM para HPC</li>
+                            <li>IGV para visualización</li>
+                            <li>Git para control de versiones</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="formacion-meta" style="margin-top: 1.5rem;">
+                    <div class="meta-item">
+                        <span>👥</span>
+                        <span><strong>Supervisores:</strong> Dr. Javier Corral, Dra. Belén de la Morena-Barrio, Dra. Maria Llamas-López</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>🏛️</span>
+                        <span><strong>Centro:</strong> Universidad de Murcia - Centro de Hemodonación de la Región de Murcia</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>📅</span>
+                        <span><strong>Duración:</strong> Septiembre 2023 - Junio 2024</span>
+                    </div>
+                </div>
+
+                <div class="proyecto-actions">
+                    <a href="https://github.com/evalopezf/Trabajo_Fin_de_Master.git" target="_blank" class="action-btn">
+                        📂 Ver repositorio GitHub
+                    </a>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/35764313/" target="_blank" class="action-btn secondary">
+                        📄 Publicación de referencia
                     </a>
                 </div>
 
-                <div class="formacion-item">
-                    <h3>🌱 Proyecto Momentum - CEBAS-CSIC</h3>
-                    <p style="line-height: 1.8;">
-                        Establecimiento del ecosistema digital para la mejora genética de frutales. Integración de Big Data, desarrollo de software y uso de infraestructuras tecnológicas avanzadas (IA, IoT, blockchain).
+                <div class="achievements-section">
+                    <h4>💭 Reflexión Personal</h4>
+                    <p style="color: var(--text-secondary); line-height: 1.8; font-size: 0.95rem;">
+                        Este proyecto me permitió entrar en contacto por primera vez con la genómica y la epigenómica, brindándome la oportunidad de trabajar con una tecnología innovadora como Oxford Nanopore. Me enfrenté a varios retos técnicos, especialmente en el ámbito de la epigenómica y en la creación de scripts en Bash para trabajar con SLURM en un entorno de computación de alto rendimiento. Sin embargo, cada error me enseñó algo nuevo y consolidó mis conocimientos en herramientas de análisis genómico, así como en habilidades prácticas fundamentales para cualquier bioinformático.
                     </p>
                 </div>
+            </div> <!-- Cierre proyecto-item SVA -->
+
+            <!-- PROYECTO 2: MOMENTUM -->
+            <div id= "proyecto-momentum" class="proyecto-item">
+                <div class="proyecto-header">
+                    <h3>🌱 Proyecto Momentum - Ecosistema Digital para Mejora Genética</h3>
+                    <div class="proyecto-tags">
+                        <span class="tag">Smart Breeding</span>
+                        <span class="tag">Transcriptómica</span>
+                        <span class="tag">IA</span>
+                        <span class="tag">CEBAS-CSIC</span>
+                    </div>
+                </div>
+
+                <p class="proyecto-description">
+                    Proyecto de investigación que busca establecer un ecosistema digital integral para aplicar técnicas de <strong>smart breeding</strong> en frutales. Integra el análisis de Big Data, desarrollo de software científico y uso de infraestructuras tecnológicas avanzadas. El proyecto incorpora tecnologías emergentes como Inteligencia Artificial, Internet of Things (IoT) y blockchain para mejorar la toma de decisiones y la eficiencia en programas de mejora genética vegetal.
+                </p>
+
+                <div class="proyecto-details">
+                    <div class="detail-box">
+                        <h4>🎯 Objetivos del Proyecto</h4>
+                        <ul>
+                            <li>Crear un repositorio web centralizado de datos genómicos y fenotípicos</li>
+                            <li>Desarrollar base de datos relacional para gestión de germoplasma</li>
+                            <li>Implementar pipelines de análisis ómico automatizados</li>
+                            <li>Integrar datos de sensores IoT para fenotipado</li>
+                            <li>Aplicar modelos de IA para predicción de rasgos</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-box">
+                        <h4>🔧 Mi Rol y Responsabilidades</h4>
+                        <ul>
+                            <li>Diseño y desarrollo del repositorio web con Flask</li>
+                            <li>Implementación de base de datos PostgreSQL</li>
+                            <li>Desarrollo de APIs para integración de datos</li>
+                            <li>Análisis de datos genómicos y transcriptómicos</li>
+                            <li>Documentación técnica y científica</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-box">
+                        <h4>💻 Stack Tecnológico</h4>
+                        <ul>
+                            <li>Backend: Python, Flask, SQLAlchemy</li>
+                            <li>Frontend: HTML, CSS, JavaScript, Tailwind</li>
+                            <li>Base de Datos: PostgreSQL, MySQL</li>
+                            <li>Análisis: R, Python (pandas, numpy, scikit-learn)</li>
+                            <li>Infraestructura: Docker, Git, Linux</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-box">
+                        <h4>📈 Impacto Esperado</h4>
+                        <ul>
+                            <li>Reducción del tiempo de desarrollo de nuevas variedades</li>
+                            <li>Mejora en la precisión de selección genómica</li>
+                            <li>Optimización de recursos en programas de mejora</li>
+                            <li>Democratización del acceso a datos genómicos</li>
+                            <li>Facilitación de colaboraciones científicas internacionales</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="formacion-meta" style="margin-top: 1.5rem;">
+                    <div class="meta-item">
+                        <span>👥</span>
+                        <span><strong>IP:</strong> Dr. Pedro José Martínez García | <strong>Co-IP:</strong> Dr. Juan Antonio Botía Blaya</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>🏛️</span>
+                        <span><strong>Centro:</strong> CEBAS-CSIC (Centro de Edafología y Biología Aplicada del Segura)</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>📅</span>
+                        <span><strong>Estado:</strong> En desarrollo (2024 - actualidad)</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>💰</span>
+                        <span><strong>Financiación:</strong> Programa Momentum - CSIC</span>
+                    </div>
+                </div>
+
+                <div class="proyecto-actions">
+                    <a href="https://momentum.csic.es/wp-content/uploads/2024/07/MMT24-CEBAS-02-01_FICHA-MOMENTUM-ESP.pdf" target="_blank" class="action-btn">
+                        📋 Información oficial del proyecto
+                    </a>
+                    <button class="action-btn secondary" disabled style="opacity: 0.6; cursor: not-allowed;">
+                        📂 Repositorio (Próximamente)
+                    </button>
+                </div>
+
+<div class="achievements-section collapsible-section">
+    <h4 class="collapsible-header" onclick="toggleCollapse(this)">
+        <span class="collapse-icon">▶</span>
+        🔍 Contexto: ¿Qué es el Smart Breeding?
+    </h4>
+    <div class="collapsible-content">
+        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 0.95rem; margin-bottom: 1rem;">
+            El smart breeding representa la evolución de los programas tradicionales de mejora genética mediante la integración de tecnologías digitales avanzadas. Permite analizar e interpretar grandes volúmenes de datos genómicos, fenotípicos y ambientales para realizar predicciones más precisas sobre el valor genético de los individuos.
+        </p>
+        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 0.95rem; margin-bottom: 1rem;">
+            La implementación requiere capacidades en análisis de Big Data, desarrollo de software en múltiples lenguajes y frameworks, gestión de infraestructuras tecnológicas (redes, servidores, cloud computing), y experiencia con tecnologías emergentes como IoT para monitorización ambiental, realidad virtual y aumentada para visualización de datos, blockchain para trazabilidad, e inteligencia artificial para modelado predictivo.
+        </p>
+    </div>
+</div>
+
+<div class="achievements-section collapsible-section">
+    <h4 class="collapsible-header" onclick="toggleCollapse(this)">
+        <span class="collapse-icon">▶</span>
+        📊 Avances Actuales
+    </h4>
+    <div class="collapsible-content">
+        <div class="achievement-item">
+            <span class="achievement-icon">🗄️</span>
+            <div class="achievement-content">
+                <strong>Desarrollo del Repositorio Web</strong>
+                <p>Implementación en curso de una plataforma web para gestión de datos de germoplasma, con interfaz intuitiva y sistema de búsqueda avanzado. Incluye módulos para carga de datos genómicos, visualización de árboles genealógicos y exportación de datos en formatos estándar.</p>
+            </div>
+        </div>
+        <div class="achievement-item">
+            <span class="achievement-icon">🔗</span>
+            <div class="achievement-content">
+                <strong>Base de Datos Relacional</strong>
+                <p>Diseño e implementación de esquema de base de datos PostgreSQL para almacenar información de accesiones, datos fenotípicos multi-año, relaciones genealógicas y datos moleculares. Incluye sistema de control de versiones para seguimiento de cambios.</p>
+            </div>
+        </div>
+        <div class="achievement-item">
+            <span class="achievement-icon">⚙️</span>
+            <div class="achievement-content">
+                <strong>APIs de Integración</strong>
+                <p>Desarrollo de APIs RESTful para facilitar la integración con herramientas de análisis externas y permitir el intercambio de datos con otras instituciones científicas de forma segura y estandarizada.</p>
             </div>
         </div>
     </div>
+</div>
+
+<div class="achievements-section collapsible-section">
+    <h4 class="collapsible-header" onclick="toggleCollapse(this)">
+        <span class="collapse-icon">▶</span>
+        💭 Reflexión Personal
+    </h4>
+    <div class="collapsible-content">
+        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 0.95rem;">
+            Este proyecto está siendo fundamental en mi desarrollo profesional, ya que me está permitiendo adquirir experiencia práctica en áreas que siempre me han apasionado: el desarrollo web y la implementación de sistemas de bases de datos en un entorno científico real. Estoy aprendiendo a traducir necesidades científicas complejas en soluciones tecnológicas funcionales, y a trabajar en un equipo multidisciplinar donde la comunicación entre biólogos, informáticos y mejoradores es esencial. La oportunidad de contribuir a un proyecto con impacto directo en la agricultura sostenible y la seguridad alimentaria es especialmente motivadora. Cada día aprendo algo nuevo sobre arquitectura de software, gestión de datos a gran escala y las particularidades de trabajar con datos biológicos heterogéneos.
+        </p>
+    </div>
+</div>
+            </div> <!-- Cierre proyecto-item Momentum -->
+
+            <!-- OTRO APARTADO  -->
+            <!-- <div class="proyecto-item" style="border-left-color: var(--text-tertiary);">
+                <h3>📚 Contexto Científico: Retrotransposones</h3>
+                <p class="proyecto-description">
+                    Los <strong>transposones</strong>, también conocidos como elementos transponibles, son secuencias de ADN capaces de moverse de una posición a otra dentro del genoma. Representan aproximadamente el <strong>45% del genoma humano</strong> y juegan roles importantes en la evolución genómica, regulación génica y, en algunos casos, en el desarrollo de enfermedades.
+                </p>
+                
+                <div class="proyecto-details">
+                </div>
+            </div> Cierre proyecto-item Contexto -->
+
+        </div> <!-- Cierre modal-body -->
+    </div> <!-- Cierre modal-content -->
+</div> <!-- Cierre proyectos-modal -->
+
+
+
 
     <!-- Modal: Herramientas -->
     <div id="tools-modal" class="modal-window">
@@ -247,6 +1615,7 @@
         </div>
     </div>
 
+
     <!-- Footer -->
     <footer>
         <p>© Eva López-Fernández, 2025. Todos los derechos reservados.</p>
@@ -275,6 +1644,50 @@
             });
         });
     </script>
+    <script>
+            $(document).ready(function() {
+        // Función para toggle de secciones desplegables
+        window.toggleCollapse = function(element) {
+            const section = element.closest('.collapsible-section');
+            section.classList.toggle('active');
+        };
+
+        // Abrir modales
+        $(".open-modal").click(function(e) {
+            e.preventDefault();
+            let target = $(this).data("target");
+            $("#" + target).fadeIn(300);
+            $('body').css('overflow', 'hidden');
+        });
+
+        // Cerrar modales con botón X
+        $(".close-modal").click(function(e) {
+            e.preventDefault();
+            $(this).closest(".modal-window").fadeOut(300);
+            $('body').css('overflow', 'auto');
+        });
+
+        // Cerrar modal al hacer click en el fondo
+        $(".modal-window").click(function(e) {
+            if (e.target === this) {
+                $(this).fadeOut(300);
+                $('body').css('overflow', 'auto');
+            }
+        });
+
+        // Prevenir cierre al hacer click en contenido del modal
+        $(".modal-content").click(function(e) {
+            e.stopPropagation();
+        });
+
+        // Cerrar modal con tecla ESC
+        $(document).keydown(function(e) {
+            if (e.key === "Escape") {
+                $(".modal-window:visible").fadeOut(300);
+                $('body').css('overflow', 'auto');
+            }
+        });
+    });
+    </script>
 </body>
 </html>
-
