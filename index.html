@@ -170,17 +170,20 @@ body {
             margin-bottom: 1rem;
         }
 
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
-            color: white;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: linear-gradient(
+        135deg,
+        var(--primary-light),   /* verde pastel claro */
+        var(--accent-mint)      /* verde menta suave */
+    );
+    color: black;               /* texto negro */
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
         .quick-links {
             display: flex;
             flex-direction: column;
@@ -966,8 +969,8 @@ body {
                 <img src="static/images/perfil.jpg" alt="Eva López-Fernández" class="profile-img">
                 <h2>Eva López-Fernández</h2>
                 <p class="subtitle">Investigadora Predoctoral</p>
-                <span class="badge" style="color: black;">🧬 Bioquímica</span>
-                <span class="badge"  style="color: black;">💻 Bioinformática</span>
+                <span class="badge" >🧬 Bioquímica</span>
+                <span class="badge" >💻 Bioinformática</span>
 
                 
                 <div class="quick-links">
@@ -1205,7 +1208,7 @@ body {
                     <div class="achievement-item">
                         <span class="achievement-icon">🏆</span>
                         <div class="achievement-content">
-                            <strong>Premio al Mejor TFM de la Promoción 2022</strong>
+                            <strong>Premio al Mejor TFM de la Promoción 2024</strong>
                             <p>Reconocimiento por la calidad científica, innovación metodológica y relevancia clínica del trabajo de investigación sobre retrotransposones.</p>
                         </div>
                     </div>
@@ -1700,6 +1703,7 @@ body {
     </script>
 </body>
 </html>
+
 
 
 
