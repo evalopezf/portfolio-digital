@@ -3,660 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portfolio</title>
-    <link rel="stylesheet" href="static/css/style_depur.css">
-
+    <title>Eva López-Fernández | Bioinformática</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <style>
+      
+    </style>
 </head>
-
 <body>
-
-    <!-- Navbar -->
-    <nav class="top-nav">
-        <div class="nav-content">
-            <ul class="nav-links">
-                <li><a href="#" class="open-window" data-target="#perfil-window">Mi Perfil</a></li>
-                <li><a href="#" class="open-window" data-target="#formacion-window">Formación</a></li>
-                <li><a href="#" class="open-window" data-target="#project-window">Proyectos</a></li>
-                <li class="dropdown">
-                    <a href="#" onclick="toggleSocialSubmenu(event)">Social▾</a>
-                    <ul class="dropdown-content" id="social-submenu" style="display: none;">
-                      <li><a href="https://www.linkedin.com/in/eva-mar%C3%ADa-l%C3%B3pez-fern%C3%A1ndez-24a59821a/" target="_blank">LinkedIn</a></li>
-                      <li><a href="https://bsky.app/profile/evalopezfernandez.bsky.social" target="_blank">Bluesky</a></li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="mailto:emlopez@cebas.csic.es" class="contact">
-                      📩Contacta conmigo
-                    </a>
-                  </li>
-            </ul>
-        </div>
-
-    </nav>
-
-    <main>
-        <div class="desktop">
-            <!-- Iconos de ventanas -->
-            <a href="#" class="open-window icon-wrapper" data-target="#formacion-window">
-                <div class="icon">
-                    <img src="https://res.cloudinary.com/theyve/image/upload/v1517561133/Trinkler/directory_closed-2.png" alt="">
+    <!-- Header -->
+    <header class="header-cientifica">
+        <div class="header-content">
+            <div class="logo-area">
+                <div>
+                    <h1>Eva López-Fernández</h1>
+                    <p>Bioquímica • Bioinformática • CEBAS-CSIC</p>
                 </div>
-                <p class="p-llave">Formación</p>
-            </a>
-
-            <a href="#" class="open-window icon-wrapper" data-target="#project-window">
-                <div class="icon">
-                    <img src="https://res.cloudinary.com/theyve/image/upload/v1517561133/Trinkler/directory_closed-2.png" alt="">
-                </div>
-                <p class="p-llave">Proyectos</p>
-            </a>
-
-            <a href="#" class="open-window icon-wrapper" id="llave" data-target="#digital-window">
-              <div class="icon">
-                  <img src="static/images/llave.png" alt="">
-              </div>
-              <p class="p-llave">Herramientas  digitales</p>
-          </a>
-  
-    
-          <div class="icon-gif">
-            <img src="static/images/sticker.png" alt="">
-          </div>
-    
-      </div>
-        <!-- Ventana: Sobre mí -->
-        <div id="sobre-mi" class="fixed-box">
-            <div class="content-title">
-                <h1>Bienvenido a mi portfolio digital</h1>
-                <p class="lead">Eva López-Fernández</p>
             </div>
-            <p>Aunque empecé hace poco, soy una apasionada del desarrollo web. Por eso te presento mi escritorio personal, donde podrás moverte libremente. Si quieres saber más sobre mí, visita <strong>mi perfil</strong> o explora mi experiencia y proyectos en las carpetas del escritorio.</p>
-          </div>
-
-
-
-        <!-- Ventana: Artículos -->
-        <div class="window" id="formacion-window">
-            <div class="window-bar">
-                <div class="window-title">
-                    <img src="https://via.placeholder.com/20" alt=""> Formación Académica - Experiencia Asociada
-                </div>
-                <div class="button close-button">&times;</div>
-            </div>
-            <div class="window-inner">
-                <div class="ventana-retro">
-                    <div class="barra-superior">Grado en Bioquímica - Universidad de Murcia</div>
-                    <div class="contenido">
-
-                      <!-- NUEVA SECCIÓN DIVIDIDA EN 3 COLUMNAS -->
-                      <div class="bloque-info">
-                        <div class="columna">
-                          <h4>Soft Skills</h4>
-                          <ul>
-                            <li>Trabajo en equipo</li>
-                            <li>Comunicación</li>
-                            <li>Adaptabilidad</li>
-                          </ul>
-                        </div>
-                        <div class="columna">
-                          <h4>Hard Skills</h4>
-                          <ul>
-        
-                            <li>
-                              <span class="habilidad" data-tooltip="Conocimiento en rutas metabólicas, genética, biología molecular y fisiología vegetal.">
-                                Fundamentos biomoleculares
-                              </span>
-                            </li>
-                            <li>
-                              <span class="habilidad" data-tooltip="Familiaridad con técnicas como PCR, electroforesis, cultivo in vitro y espectrofotometría.">
-                                Técnicas de laboratorio
-                              </span>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="columna">
-                          <h4>Proyectos / Logros</h4>
-                          <ul>
-                            <li class="open-window" data-target="#carrousel-window">
-                              <span class="habilidad" data-tooltip="Videos y Fotos relacionadas.">
-                                Prácticas en Laboratorio Cultivo in vitro
-                              </span>
-                              </li>
-                            <li>Trabajo Fin de Grado sobre Criopreservación</li>
-                          </ul>
-                        </div>
-                      </div>
-                  
-                      <a href="https://www.um.es/web/estudios/grados/bioquimica/plan-guias" target="_blank" class="enlace-hover">Ver plan de estudios</a>
-                    </div>
-                  </div>
-                  <!-- carrousel  -->
-                  <div class="window" id="carrousel-window" style="display: none;">
-                    <div class="window-bar">
-                      <div class="window-title">
-                        <img src="static/images/icon_lab.png" alt=""> Prácticas de Cultivo in vitro
-                      </div>
-                      <div class="button close-button">&times;</div>
-                    </div>
-                    <div class="window-inner">
-                      <div class="carrusel">
-                        <button class="prev">⟨</button>
-                        <div class="carrusel-contenido">
-                          <div class="slide activo">
-                            <img src="static/images/uvas.jpg" alt="Foto 1">
-                          </div>
-                          <div class="slide">
-                            <video controls>
-                              <source src="static/images/video2.mp4">
-                            </video>
-                          </div>
-                          
-                          <div class="slide">
-                            <img src="static/images/autoclave.jpg" alt="Foto 2">
-                          </div>
-                        </div>
-                        <button class="next">⟩</button>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  
-                  <!-- VENTANA MASTER  -->
-                  <div class="ventana-retro">
-                    <div class="barra-superior">Máster en Bioinformática - Universidad de Murcia</div>
-                    <div class="contenido">
-
-                      <!-- NUEVA SECCIÓN DIVIDIDA EN 3 COLUMNAS -->
-                      <div class="bloque-info">
-                        <div class="columna">
-                          <h4>Soft Skills</h4>
-                          <ul>
-                            <li>Pensamiento analítico</li>
-                            <li>
-                              <span class="habilidad" data-tooltip="Exposición de avances en equipo de investigación y defensa del TFM.">
-                                Comunicación científica
-                              </span>
-                            </li>
-                            <li>
-                              <span class="habilidad" data-tooltip="Experiencia organizando tareas en proyectos con múltiples etapas computacionales y experimentales.">
-                                Gestión del tiempo
-                              </span>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="columna">
-                          <h4>Hard Skills</h4>
-                          <ul>
-                            <li>
-                              <span class="habilidad" data-tooltip="Procesamiento de lecturas, alineamiento, cuantificación y análisis de expresión génica.">
-                                Análisis de secuencias y expresión génica
-                              </span>
-                            </li>
-                            <li>
-                              <span class="habilidad" data-tooltip="Uso de lenguajes como Bash, R y Python para automatizar tareas y analizar datos.">
-                                Programación y scripting
-                              </span>
-                            </li>
-                            <li>
-                              <span class="habilidad" data-tooltip="Manejo de herramientas como R y Excel para explorar, organizar y visualizar resultados biológicos.">
-                                Gestión y visualización de datos
-                              </span>
-                            </li>
-                            <li>
-                              <span class="habilidad" data-tooltip="Ejecución de análisis en servidores con SLURM y creación de pipelines.">
-                                Entornos HPC y automatización
-                              </span>
-                            </li>
-                          </ul>
-                          
-                        </div>
-                        <div class="columna">
-                          <h4>Proyectos / Logros</h4>
-                          <ul>
-                            <li>MH en Modelado Molecular</li>
-                            <li>
-                                <span class="habilidad" data-tooltip="Ver Proyecto">
-                                <a  href="#" class="open-window" data-target="#nanopore-window">Trabajo fin de Máster</a>
-                                </span>
-                            </li>
-                      
-                            <li>Premio mejor TFM de mi promoción
-                            </li>
-
-                          </ul>
-                        </div>
-                      </div>
-                  
-                      <a href="https://www.um.es/web/estudios/masteres/bioinformatica/plan-guias" target="_blank" class="enlace-hover">Ver plan de estudios</a>
-                    </div>
-                  </div>
-                  
-    
-        <!-- VENTANA FORMACION COMPLEMENTARIA  -->
-        <div class="ventana-retro">
-            <div class="barra-superior">Formación Complementaria</div>
-            <div class="contenido">
-              <!-- NUEVA SECCIÓN DIVIDIDA EN 3 COLUMNAS -->
-              <div class="bloque-info">
-      
-                <div class="columna">
-                  <h4>Competencias Digitales</h4>
-                  <ul>
-                    <li>Curso de programación en Python</li>
-                    <li>Introducción a R y R-Studios</li>
-                    <li>Introducción a la programación en Java</li>
-                  </ul>
-                </div>
-                <div class="columna">
-                  <h4>Otras Competencias</h4>
-                  <ul>
-      
-                    <li>Curso fundamentos de genética forense humana aplicada a la investigación criminal. Aspectos técnicos y legales.</li>
-          
-                  </ul>
-                </div>
-                <!-- <div class="columna">
-                  <h4>Proyectos / Logros</h4>
-                  <ul>
-                    <li>Prácticas en Laboratorio Cultivo in vitro</li>
-                    <li>Trabajo Fin de Grado sobre Criopreservación</li>
-                  </ul>
-                </div> -->
-              </div>
-          
-            </div>
-          </div>
+            <nav class="nav-principal">
+                <a href="#" class="nav-btn open-modal" data-target="perfil-modal">Mi Perfil</a>
+                <a href="#" class="nav-btn open-modal" data-target="formacion-modal">Formación</a>
+                <a href="#" class="nav-btn open-modal" data-target="proyectos-modal">Proyectos</a>
+                <a href="#" class="nav-btn open-modal" data-target="tools-modal">Herramientas</a>
+                <a href="mailto:emlopez@cebas.csic.es" class="nav-btn primary">📩 Contacto</a>
+            </nav>
         </div>
-      </div>
+    </header>
 
-        <!-- Ventana: Proyectos -->
-        <div class="window" id="project-window">
-            <div class="window-bar">
-                <div class="window-title">
-                    <img src="https://via.placeholder.com/20" alt=""> Proyectos
-                </div>
-                <div class="button close-button">&times;</div>
-            </div>
-            <div class="window-inner" id="project-inner">
-
-
-              <a href="#" class="open-window icon-wrapper" data-target="#nanopore-window" title="Proyecto durante TFM">
-                <div class="icon icon-small">
-                  <img src="https://res.cloudinary.com/theyve/image/upload/v1517561133/Trinkler/directory_closed-2.png" alt="Retrotransposones SVA">
-                </div>
-                <p class="p-project">Retrotransposones SVA</p>
-              </a>
-                <a href="#" class="open-window icon-wrapper" data-target="#momentum-window">
-                  <div class="icon icon-small">
-                        <img src="static/images/momentum.png" alt="">
-                    </div>
-                    <p class="p-project">Momentum</p>
-                </a>
-            </div>
-            
-        </div>
-        <div class="window" id="nanopore-window">
-          <div class="window-bar">
-            <div class="window-title">
-              <img src="https://via.placeholder.com/20" alt=""> Proyecto TFM
-            </div>
-            <div class="button close-button">&times;</div>
-          </div>
-        
-          <div class="window-inner">
-            <!-- Descripción arriba -->
-            <h2>Retrotransposones SVA</h2>
-            <p class="descripcion" id="descripcion-proyecto">
-              Este proyecto desarrollado durante mi TFM se centró en el estudio <strong>genómico</strong> y <strong>epigenómico</strong>  de retrotransposones SVA en pacientes con deficiencia de antitrombina mediante la tecnología de <strong>Oxford Nanopore</strong>. A lo largo del análisis empleé herramientas como Sniffles y RepeatMasker para filtrar e identificar inserciones específicas obteniendo finalmente la caracterización de inserciones causantes de la enfermedad.
-            </p>
-            <p class="descripcion" id="descripcion-proyecto"> Todo este trabajo fue posible gracias al apoyo y la supervisión de Javier Corral, Belén de la Morena-Barrio y Maria Llamas-López, a quienes agradezco profundamente su confianza y dedicación.
-              Podéis encontrar algunas de sus publicaciones relacionadas con este tema haciendo  
-              <a href="https://pubmed.ncbi.nlm.nih.gov/35764313/" target="_blank"><strong><u> click aquí</u></strong></a>
-            </p>
-            
-
-        
-            <!-- Contenido en columnas -->
-            <div class="contenido-columnas">
-              <!-- Columna 1: Resultados -->
-              <div class="columna">
-                <h3>Resultados</h3>
-                <p>Puedes consultar el informe final con los resultados obtenidos.</p>
-                <a href="https://github.com/evalopezf/Trabajo_Fin_de_Master.git" target="_blank" class="btn">Ver GitHub</a>
-              </div>
-        
-              <!-- Columna 2: ¿Quieres saber más? -->
-              <div class="columna">
-                <h3>¿Quieres saber más?</h3>
-                <p>Información general sobre los retrotransposones SVA y su relevancia genética.</p>
-                <button class="btn open-window" data-target="#more-window">Leer más</button>
-              </div>
-        
-              <!-- Columna 3: Reflexión -->
-              <div class="columna">
-                <h3>Reflexión</h3>
-                <p>Mis aprendizajes y sensaciones sobre este proyecto.</p>
-                <button class="btn open-window" data-target="#reflexion-window">Abrir bloc de notas</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="window" id="more-window">
-          <div class="window-bar">
-            <div class="window-title">
-              <img src="https://via.placeholder.com/20" alt=""> Saber más...
-            </div>
-            <div class="button close-button">&times;</div>
-          </div>
-        
-          <div class="window-inner bloc-notas">
-            <h3>¿Que son los transposones?</h3>
-            <div class="nota-escrita">
-              <p>Los transposones, también conocidos como elementos transponibles, son secuencias de ADN capaces de moverse de una posición a otra dentro del genoma. Representan <strong>alrededor del 45%</strong> del genoma humano.</p>
-              <p>Los transposones pueden movilizarse a través de dos mecanismos principales: <em>copia y pega</em>, en el que se duplican y se insertan en otra región del genoma, y <em>corta y pega</em>, en el que se trasladan directamente de una ubicación a otra.</p>
-              <p></p>
-            </div>
-          </div>
-        </div>
-        <div class="window" id="reflexion-window">
-          <div class="window-bar">
-            <div class="window-title">
-              <img src="https://via.placeholder.com/20" alt=""> Reflexión
-            </div>
-            <div class="button close-button">&times;</div>
-          </div>
-        
-          <div class="window-inner bloc-notas">
-            <h3>Reflexión personal</h3>
-            <div class="nota-escrita">
-              <p>Este proyecto me permitió entrar en contacto por primera vez con la genómica y la epigenómica. Me brindó la oportunidad de trabajar con una tecnología innovadora como la de Oxford Nanopore, y de profundizar en el estudio de los retrotransposones y su estrecha relación con la evolución humana y el desarrollo de enfermedades.</p>
-
-              <p>Me enfrenté a varios retos técnicos, ya que era nueva sobre todo en el ámbito de la epigenómica y en la creación de scripts en Bash para trabajar con SLURM en un entorno de computación de alto rendimiento, pero cada error me enseñó algo nuevo.</p>
-              
-              <p>Creo que este proyecto ha sido clave para asentar mis conocimientos en herramientas de análisis genómico, así como en habilidades prácticas del día a día como el trabajo en terminal, Python o R, fundamentales para cualquier bioinformático.</p>
-              
-            </div>
-          </div>
-        </div>
-
-        <!-- momentum window -->
-        <div class="window" id="momentum-window">
-          <div class="window-bar">
-            <div class="window-title">
-              <img src="https://via.placeholder.com/20" alt=""> Mi proyecto Momentum
-            </div>
-            <div class="button close-button">&times;</div>
-          </div>
-        
-          <div class="window-inner">
-            <!-- Descripción arriba -->
-            <h2>Establecimiento del ecosistema digital para la mejora genética de frutales</h2>
-            <p class="descripcion" id="descripcion-proyecto">
-              Este proyecto busca crear un ecosistema digital para aplicar técnicas de smart breeding. Para ello, integra el análisis de Big Data, desarrollo de software y uso de infraestructuras tecnológicas avanzadas. Además, busca incorpora tecnologías emergentes como IA, IoT o blockchain para mejorar la toma de decisiones y la eficiencia en la mejora genética.
-            </p>
-            <p class="descripcion" id="descripcion-proyecto">
-              Los principales participantes en este proyecto son mis IP y co-IP Pedro José Martínez García y Juan Antonio Botía Blaya, respectivamente.
-              Puedes encontrar más información sobre el proyecto en la web del <a href="https://momentum.csic.es/wp-content/uploads/2024/07/MMT24-CEBAS-02-01_FICHA-MOMENTUM-ESP.pdf" target="_blank"><strong><u>Momentum-CSIC</u></strong></a>
-            </p>
-            <div class="contenido-columnas">
-              <div class="columna">
-                <h3>Resultados</h3>
-                <p>Se irán actualizando los resultados que se vayan obteniendo a lo largo del proyecto</p>
-                <a href="#" class="btn no-link" onclick="mostrarMensaje(event)">Ver GitHub</a>
-                <span id="mensaje-proximamente" class="mensaje-oculto">Próximamente...</span>
-                              </div>
-              <!-- Columna 2: ¿Quieres saber más? -->
-              <div class="columna">
-                <h3>¿Quieres saber más?</h3>
-                <p>Pulsa para saber más del proyecto</p>
-                <button class="btn open-window" data-target="#more-window-momentum">Leer más</button>
-              </div>
-        
-              <!-- Columna 3: Reflexión -->
-              <div class="columna">
-                <h3>Reflexión</h3>
-                <p>Mis aprendizajes y sensaciones sobre este proyecto.</p>
-                <button class="btn open-window" data-target="#reflexion-window-momentum">Abrir bloc de notas</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="window" id="more-window">
-          <div class="window-bar">
-            <div class="window-title">
-              <img src="https://via.placeholder.com/20" alt=""> Saber más...
-            </div>
-            <div class="button close-button">&times;</div>
-          </div>
-        
-          <div class="window-inner bloc-notas">
-            <h3>¿Que son los transposones?</h3>
-            <div class="nota-escrita">
-              <p>Los transposones, también conocidos como elementos transponibles, son secuencias de ADN capaces de moverse de una posición a otra dentro del genoma. Representan <strong>alrededor del 45%</strong> del genoma humano.</p>
-              <p>Los transposones pueden movilizarse a través de dos mecanismos principales: <em>copia y pega</em>, en el que se duplican y se insertan en otra región del genoma, y <em>corta y pega</em>, en el que se trasladan directamente de una ubicación a otra.</p>
-              <p></p>
-            </div>
-          </div>
-        </div>
-        <div class="window" id="more-window-momentum">
-          <div class="window-bar">
-            <div class="window-title">
-              <img src="https://via.placeholder.com/20" alt=""> Saber más...
-            </div>
-            <div class="button close-button">&times;</div>
-          </div>
-        
-          <div class="window-inner bloc-notas">
-            <h3>Este proyecto...</h3>
-            <div class="nota-escrita">
-              <p>El objetivo general de este proyecto es habilitar un ecosistema digital que permita la implementación del smart breeding. </p>
-              <p>Para ello se hace necesario analizar e interpretar grandes volúmenes de datos (Big Data), desarrollar código, aplicaciones y sistemas de software en varios lenguajes de programación y frameworks, implementar y mantener infraestructuras tecnológicas, como redes, servidores y servicios en la nube y la capacidad de trabajar con tecnologías emergentes como el Internet de las Cosas (IoT), la realidad virtual y aumentada, blockchain y la inteligencia artificial. </p>
-              <p>Esta innovación digital nos va a permitir generar tomas de decisiones más precisas, así como implementar estrategias de mejora mucho más eficientes.</p>
-              <p><em> De momento me encuentro con el desarrollo de un Repositorio Web y Base de datos asociada.</em></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="window" id="reflexion-window">
-          <div class="window-bar">
-            <div class="window-title">
-              <img src="https://via.placeholder.com/20" alt=""> Reflexión
-            </div>
-            <div class="button close-button">&times;</div>
-          </div>
-        
-          <div class="window-inner bloc-notas">
-            <h3>Reflexión personal</h3>
-            <div class="nota-escrita">
-              <p>Este proyecto me permitió entrar en contacto por primera vez con la genómica y la epigenómica. Me brindó la oportunidad de trabajar con una tecnología innovadora como la de Oxford Nanopore, y de profundizar en el estudio de los retrotransposones y su estrecha relación con la evolución humana y el desarrollo de enfermedades.</p>
-
-              <p>Me enfrenté a varios retos técnicos, ya que era nueva sobre todo en el ámbito de la epigenómica y en la creación de scripts en Bash para trabajar con SLURM en un entorno de computación de alto rendimiento, pero cada error me enseñó algo nuevo.</p>
-              
-              <p>Creo que este proyecto ha sido clave para asentar mis conocimientos en herramientas de análisis genómico, así como en habilidades prácticas del día a día como el trabajo en terminal, Python o R, fundamentales para cualquier bioinformático.</p>
-              
-            </div>
-          </div>
-        </div>
-        <div class="window" id="reflexion-window-momentum">
-          <div class="window-bar">
-            <div class="window-title">
-              <img src="https://via.placeholder.com/20" alt=""> Reflexión
-            </div>
-            <div class="button close-button">&times;</div>
-          </div>
-        
-          <div class="window-inner bloc-notas">
-            <h3>Reflexión personal</h3>
-            <div class="nota-escrita">
-              <p>Como este proyecto está comenzando, solo puedo reflexionar sobre lo que llevo y lo que creo que puedo esperar.</p>
-              <p>Estoy aprendiendo cosas muy valiosas, introduciéndome por primera vez en ámbitos que me emocionan, como el desarrollo web y la implementación real de una base de datos. Todo esto me está permitiendo conocer de cerca el entorno científico y tecnológico en el que siempre he querido crecer.</p>
-              
-            </div>
-          </div>
-        </div>
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="card profile-card">
+                <img src="https://via.placeholder.com/120" alt="Eva López-Fernández" class="profile-img">
+                <h2>Eva López-Fernández</h2>
+                <p class="subtitle">Investigadora Predoctoral</p>
+                <span class="badge">🧬 Bioinformática</span>
                 
-        <!-- Ventana competencias digitales  -->
-        <div class="window" id="digital-window">
-          <div class="window-bar">
-              <div class="window-title">
-                  <img src="https://via.placeholder.com/20" alt=""> Competencias Digitales
-              </div>
-              <div class="button close-button">&times;</div>
-          </div>
-          <div class="window-inner">
-            <h1>🧠 Herramientas y Tecnologías</h1>
-            <p class="p-digital">
-                Herramientas que he ido utilizando y aprendiendo a lo largo de mis estudios y proyectos.
-            </p>
-        
-            <hr>
-        
-            <h3>💻 Lenguajes de Programación</h3>
-            <div class="iconos-flex">
-                <div class="icono-item"><img src="static/images/python.png" class="icono-competencia"><span>Python</span></div>
-                <div class="icono-item"><img src="static/images/R.png" class="icono-competencia"><span>R</span></div>
-                <div class="icono-item"><img src="static/images/bash.png" class="icono-competencia"><span>Bash</span></div>
-                <div class="icono-item"><img src="static/images/SQL.png" class="icono-competencia"><span>SQL</span></div>
-                <div class="icono-item"><img src="static/images/js.png" class="icono-competencia"><span>JavaScript</span></div>
-            </div>
-        
-            <hr>
-        
-            <h3>🧬 Bioinformática y Ciencia de Datos</h3>
-        
-            <p class="subtitulo">Genómica</p>
-            <div class="bloque-herramientas">
-                <span class="herramienta">Samtools</span>
-                <span class="herramienta">Bcftools</span>
-                <span class="herramienta">Sniffles</span>
-                <span class="herramienta">IGV</span>
-                <span class="herramienta">Emboss</span>
-                <span class="herramienta">BLAST</span>
-                <span class="herramienta">Methylartist</span>
-            </div>
-        
-            <p class="subtitulo">Transcriptómica / RNA-seq</p>
-            <div class="bloque-herramientas">
-                <span class="herramienta">FastQC</span>
-                <span class="herramienta">STAR</span>
-                <span class="herramienta">featureCounts</span>
-                <span class="herramienta">EdgeR</span>
-            </div>
-        
-            <hr>
-        
-            <h3>🖥️ Entornos y Terminal</h3>
-            <div class="iconos-flex">
-                <div class="icono-item"><img src="static/images/linux.png" class="icono-competencia"><span>Linux/WSL</span></div>
-                <div class="icono-item"><img src="static/images/slurm.png" class="icono-competencia"><span>SLURM</span></div>
-            </div>
-        
-            <hr>
-        
-            <h3>🗃️ Bases de Datos</h3>
-            <div class="iconos-flex">
-                <div class="icono-item"><img src="static/images/psql.png" class="icono-competencia"><span>PostgreSQL</span></div>
-                <div class="icono-item"><img src="static/images/mysql.png" class="icono-competencia"><span>MySQL</span></div>
-            </div>
-        
-            <hr>
-        
-            <h3>🌐 Desarrollo Web</h3>
-            <div class="iconos-flex">
-                <div class="icono-item"><img src="static/images/flask.png" class="icono-competencia"><span>Flask</span></div>
-                <div class="icono-item"><img src="static/images/tail.png" class="icono-competencia"><span>Tailwind</span></div>
-            </div>
-        </div>
-        
-        </div>
-        
-        <div class="window" id="perfil-window">
-          <div class="window-bar">
-            <div class="window-title">
-              <img src="https://via.placeholder.com/20" alt=""> Sobre Mí
-            </div>
-            <div class="button close-button">&times;</div>
-          </div>
-          <div class="window-inner perfil-retro">
-            <div class="perfil-contenido">
-        
-              <!-- Lateral izquierdo: herramientas favoritas -->
-              <div class="sidebar-herramientas">
-                <h4> Herramientas Favoritas</h4>
-                <ul>
-                  <li>Python</li>
-                  <li>PostgreSQL</li>
-                  <li>Bash</li>
-                  <li>Flask</li>
-                </ul>
-                <h4>Publicaciones</h4>
-                <ul>
-                  <li class="publicaciones-red">Proximamente ...</li>
-
-                </ul>
-              </div>
-        
-              <!-- Contenido principal -->
-              <div class="perfil-principal">
-                <div class="foto-y-info">
-                  <div class="foto-perfil">
-                    <img src="static/images/perfil.jpg" alt="Foto de Eva">
-                  </div>
-                  <div class="info-personal">
-                    <h2>Eva López-Fernández</h2>
-                    <p class="frase">"Meticulosa y curiosa por naturaleza."</p>
-                    <ul>
-                      <li>📍 Murcia, España</li>
-                      <li>🎓 Bioquímica y Bioinformática</li>
-                      <li>🧪 Investigadora Predoctoral en CEBAS-CSIC - Proyecto Momentum</li>
-                    </ul>
-                  </div>
+                <div class="quick-links">
+                    <a href="https://www.linkedin.com/in/eva-mar%C3%ADa-l%C3%B3pez-fern%C3%A1ndez-24a59821a/" target="_blank" class="quick-link">
+                        🔗 LinkedIn
+                    </a>
+                    <a href="https://bsky.app/profile/evalopezfernandez.bsky.social" target="_blank" class="quick-link">
+                        🦋 Bluesky
+                    </a>
+                    <a href="https://github.com/evalopezf" target="_blank" class="quick-link">
+                        💻 GitHub
+                    </a>
                 </div>
-        
-                <div class="descripcion">
-                  <p class="p-description">
-                   Soy graduada en Bioquímica con un Máster en Bioinformática por la Universidad de Murcia. Cuento con experiencia en técnicas de laboratorio y cultivo in vitro, así como en análisis de datos ómicos, en especial análisis genómico, adquirida durante mi proyecto de fin de máster.
+            </div>
 
+            <div class="card">
+                <h3 style="font-size: 1rem; margin-bottom: 1rem; color: var(--text-primary);">📍 Información</h3>
+                <div style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.8;">
+                    <p>📍 Murcia, España</p>
+                    <p>🏛️ CEBAS-CSIC</p>
+                    <p>🔬 Proyecto Momentum</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content-area">
+            <!-- Hero -->
+            <div class="hero-card">
+                <h1>Bienvenido a mi portfolio científico</h1>
+                <p>Graduada en Bioquímica con Máster en Bioinformática por la Universidad de Murcia. Actualmente trabajo como investigadora predoctoral en el CEBAS-CSIC, donde aplico técnicas de análisis de datos ómicos y desarrollo de herramientas digitales para la mejora genética de frutales. Mi objetivo es integrar biología computacional y biotecnología para resolver problemas complejos en investigación científica.</p>
+            </div>
+
+            <!-- Secciones principales -->
+            <div class="sections-grid">
+                <div class="section-card open-modal" data-target="formacion-modal">
+                    <div class="section-icon">🎓</div>
+                    <h3>Formación Académica</h3>
+                    <p>Grado en Bioquímica y Máster en Bioinformática. Formación especializada en análisis genómico y desarrollo de software científico.</p>
+                </div>
+
+                <div class="section-card open-modal" data-target="proyectos-modal">
+                    <div class="section-icon">🔬</div>
+                    <h3>Proyectos de Investigación</h3>
+                    <p>Retrotransposones SVA, ecosistemas digitales para mejora genética, y análisis de datos ómicos con tecnologías avanzadas.</p>
+                </div>
+
+                <div class="section-card open-modal" data-target="tools-modal">
+                    <div class="section-icon">💻</div>
+                    <h3>Competencias Digitales</h3>
+                    <p>Python, R, Bash, SQL, herramientas bioinformáticas, bases de datos y desarrollo web con Flask.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal: Mi Perfil -->
+    <div id="perfil-modal" class="modal-window">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Mi Perfil Profesional</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem;">
+                    Soy graduada en Bioquímica con un Máster en Bioinformática por la Universidad de Murcia. Cuento con experiencia en técnicas de laboratorio y cultivo in vitro, así como en análisis de datos ómicos, especialmente análisis genómico, adquirida durante mi proyecto de fin de máster.
+                </p>
+                <p style="font-size: 1rem; line-height: 1.8; color: var(--text-secondary);">
                     Mi objetivo es aplicar mis conocimientos en biología y bioinformática para resolver problemas complejos y optimizar procesos biológicos y tecnológicos. Me considero una persona trabajadora, con actitud proactiva y un gran deseo de aprender y crecer profesionalmente.
-                    
-                    
-                        </p>
-                </div>
-              </div>
-        
+                </p>
             </div>
-          </div>
-  
-    </main>
-    <footer class="footer-retro">
-      <p>© Eva López-Fernández, 2025. Todos los derechos reservados.</p>
-      <p>Gif personalizado mediante  <a href="https://www.bitmoji.com/" target="_blank">Bitmoji</a></p>
-      <p>Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
-    </footer>
-    
-    <!-- Scripts -->
-    <script src="static/js/articulo.js"></script>
+        </div>
+    </div>
 
+    <!-- Modal: Formación -->
+    <div id="formacion-modal" class="modal-window">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Formación Académica</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="formacion-item">
+                    <h3>🎓 Grado en Bioquímica - Universidad de Murcia</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Soft Skills</h4>
+                            <ul>
+                                <li>Trabajo en equipo</li>
+                                <li>Comunicación</li>
+                                <li>Adaptabilidad</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Hard Skills</h4>
+                            <ul>
+                                <li>Fundamentos biomoleculares</li>
+                                <li>Técnicas de laboratorio</li>
+                                <li>Cultivo in vitro</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formacion-item">
+                    <h3>🧬 Máster en Bioinformática - Universidad de Murcia</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Soft Skills</h4>
+                            <ul>
+                                <li>Pensamiento analítico</li>
+                                <li>Comunicación científica</li>
+                                <li>Gestión del tiempo</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Hard Skills</h4>
+                            <ul>
+                                <li>Análisis de secuencias</li>
+                                <li>Programación (Bash, R, Python)</li>
+                                <li>Visualización de datos</li>
+                                <li>HPC y automatización</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; color: var(--primary-blue); font-weight: 600;">
+                        🏆 Premio al mejor TFM de la promoción
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Proyectos -->
+    <div id="proyectos-modal" class="modal-window">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Proyectos de Investigación</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="formacion-item">
+                    <h3>🧬 Retrotransposones SVA (TFM)</h3>
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">
+                        Estudio genómico y epigenómico de retrotransposones SVA en pacientes con deficiencia de antitrombina mediante tecnología Oxford Nanopore. Caracterización de inserciones causantes de la enfermedad.
+                    </p>
+                    <a href="https://github.com/evalopezf/Trabajo_Fin_de_Master.git" target="_blank" style="color: var(--primary-blue); font-weight: 600; text-decoration: none;">
+                        Ver repositorio en GitHub →
+                    </a>
+                </div>
+
+                <div class="formacion-item">
+                    <h3>🌱 Proyecto Momentum - CEBAS-CSIC</h3>
+                    <p style="line-height: 1.8;">
+                        Establecimiento del ecosistema digital para la mejora genética de frutales. Integración de Big Data, desarrollo de software y uso de infraestructuras tecnológicas avanzadas (IA, IoT, blockchain).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Herramientas -->
+    <div id="tools-modal" class="modal-window">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Competencias Digitales</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="tools-section">
+                    <div class="tools-category">
+                        <h3>💻 Lenguajes de Programación</h3>
+                        <div class="tools-grid">
+                            <div class="tool-item"><span>Python</span></div>
+                            <div class="tool-item"><span>R</span></div>
+                            <div class="tool-item"><span>Bash</span></div>
+                            <div class="tool-item"><span>SQL</span></div>
+                            <div class="tool-item"><span>JavaScript</span></div>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3>🧬 Herramientas Bioinformáticas</h3>
+                        <div class="tools-grid">
+                            <div class="tool-item"><span>Samtools</span></div>
+                            <div class="tool-item"><span>Bcftools</span></div>
+                            <div class="tool-item"><span>Sniffles</span></div>
+                            <div class="tool-item"><span>IGV</span></div>
+                            <div class="tool-item"><span>BLAST</span></div>
+                            <div class="tool-item"><span>FastQC</span></div>
+                            <div class="tool-item"><span>STAR</span></div>
+                            <div class="tool-item"><span>EdgeR</span></div>
+                        </div>
+                    </div>
+
+                    <div class="tools-category">
+                        <h3>🗃️ Bases de Datos y Web</h3>
+                        <div class="tools-grid">
+                            <div class="tool-item"><span>PostgreSQL</span></div>
+                            <div class="tool-item"><span>MySQL</span></div>
+                            <div class="tool-item"><span>Flask</span></div>
+                            <div class="tool-item"><span>Tailwind</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© Eva López-Fernández, 2025. Todos los derechos reservados.</p>
+        <p>Investigadora Predoctoral • CEBAS-CSIC • Proyecto Momentum</p>
+    </footer>
 
     <script>
-    $(document).ready(function() {
-        $(".open-window").click(function(e) {
-            e.preventDefault();
-            let target = $(this).data("target");
-            $(target).show();
-        });
+        $(document).ready(function() {
+            // Abrir modales
+            $(".open-modal").click(function(e) {
+                e.preventDefault();
+                let target = $(this).data("target");
+                $("#" + target).fadeIn(200);
+            });
 
-        $(".close-button").click(function() {
-            $(this).closest(".window").hide();
+            // Cerrar modales
+            $(".close-modal, .modal-window").click(function(e) {
+                if (e.target === this) {
+                    $(this).closest(".modal-window").fadeOut(200);
+                }
+            });
+
+            // Prevenir cierre al hacer click en contenido del modal
+            $(".modal-content").click(function(e) {
+                e.stopPropagation();
+            });
         });
-    });
     </script>
-    
-
 </body>
 </html>
