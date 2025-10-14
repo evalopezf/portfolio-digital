@@ -622,13 +622,12 @@ body {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
-             color: black; 
         }
 
         .action-btn {
             padding: 0.625rem 1.25rem;
             background: var(--primary-blue);
-            color: white;
+            color: black;
             border: none;
             border-radius: 0.5rem;
             font-size: 0.875rem;
@@ -810,12 +809,15 @@ body {
 }
 
 .index-card:hover {
-    border-color: var(--primary-blue);
+    border-color: var(--primary-green); /* verde pistacho medio */
     transform: translateY(-3px);
-    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2);
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.02) 0%, rgba(6, 182, 212, 0.02) 100%);
+    box-shadow: 0 8px 16px rgba(127, 201, 127, 0.2); /* verde suave translúcido */
+    background: linear-gradient(
+        135deg,
+        rgba(127, 201, 127, 0.05) 0%, /* verde pistacho claro translúcido */
+        rgba(168, 230, 207, 0.05) 100% /* verde menta translúcido */
+    );
 }
-
 .index-icon {
     font-size: 2.5rem;
     flex-shrink: 0;
@@ -964,8 +966,8 @@ body {
                 <img src="static/images/perfil.jpg" alt="Eva López-Fernández" class="profile-img">
                 <h2>Eva López-Fernández</h2>
                 <p class="subtitle">Investigadora Predoctoral</p>
-                <span class="badge">🧬 Bioquímica</span>
-                <span class="badge">💻 Bioinformática</span>
+                <span class="badge" style="color: black;">🧬 Bioquímica</span>
+                <span class="badge"  style="color: black;">💻 Bioinformática</span>
 
                 
                 <div class="quick-links">
@@ -1698,6 +1700,7 @@ body {
     </script>
 </body>
 </html>
+
 
 
 
