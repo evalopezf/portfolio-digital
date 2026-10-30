@@ -102,6 +102,11 @@ section.block{padding:88px 0 24px}
 .profile-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px}
 .pull{font-family:var(--serif);font-size:1.55rem;line-height:1.4;color:var(--forest-deep);border-left:3px solid var(--apricot);padding-left:22px;margin-bottom:26px}
 .profile-text p{color:var(--ink-2);margin-bottom:14px}
+.profile-card{align-self:start;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;box-shadow:var(--shadow)}
+.profile-card h3{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin-bottom:14px}
+.profile-card dl{display:grid;grid-template-columns:auto 1fr;gap:12px 18px;font-size:.92rem}
+.profile-card dt{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);padding-top:3px}
+.profile-card dd{color:var(--ink-2)}
 .interests{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-size:.78rem;padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--ink-2)}
 
@@ -119,6 +124,7 @@ section.block{padding:88px 0 24px}
 .tl .lane{position:relative;height:26px}
 .tl .lane::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:1px solid var(--line)}
 .tl .bar{position:absolute;top:0;height:26px;border-radius:5px;display:flex;align-items:center;padding:0 10px;font-family:var(--mono);font-size:.68rem;color:#fff;white-space:nowrap;overflow:hidden}
+.tl .bar.compact{padding:0 3px;font-size:.58rem;justify-content:center}
 .tl .bar.b1{background:var(--pistachio);color:var(--forest-deep)}
 .tl .bar.b2{background:var(--forest)}
 .tl .bar.b3{background:repeating-linear-gradient(45deg,var(--apricot),var(--apricot) 8px,#eaa676 8px,#eaa676 16px)}
@@ -390,6 +396,16 @@ footer .funding{font-family:var(--mono);font-size:.72rem}
           <span class="chip">Desarrollo web científico</span><span class="chip">Bases de datos</span><span class="chip">IA aplicada</span>
         </div>
       </div>
+      <aside class="profile-card reveal" aria-label="Resumen">
+        <h3>De un vistazo</h3>
+        <dl>
+          <dt>Ahora</dt><dd>Doctorado · CEBAS-CSIC (Programa Momentum)</dd>
+          <dt>Máster</dt><dd>Bioinformática · Universidad de Murcia <em>(Premio TFM)</em></dd>
+          <dt>Grado</dt><dd>Bioquímica · Universidad de Murcia</dd>
+          <dt>Enfoque</dt><dd>Smart breeding de frutales, genómica y transcriptómica</dd>
+          <dt>Lenguajes</dt><dd>Python · R · Bash · SQL · JavaScript · PHP</dd>
+        </dl>
+      </aside>
     </div>
 
     <!-- Trayectoria estilo navegador genómico -->
@@ -652,7 +668,7 @@ const COMMS = [
     title: "FruitDBase | Primer atlas de expresión génica en almendro",
     event: "Escuela de Verano IA y Conocimiento Abierto",
     place: "CSIC, Madrid", date: "2026-07", dateLabel: "13–16 jul 2026",
-    authors: "<strong>López-Fernández EM</strong>",
+  
     img: "static/images/comunicaciones/escuela-verano-2026.jpg",
     url: "https://aprende.csic.es/catalogo/escuela-de-verano-ia-y-conocimiento-abierto/" },
 
@@ -660,22 +676,22 @@ const COMMS = [
     title: "The Almond Expression Atlas v1.0",
     event: "IX International Symposium on Almonds and Pistachios (ISHS)",
     place: "Lleida", date: "2026-05", dateLabel: "3–7 may 2026",
-    authors: "<strong>López-Fernández EM</strong>, … , Martínez-García PJ",
+   
     img: "static/images/comunicaciones/almond-pistachio-2026.jpg",
     url: "https://almondpistachio2026.com/" },
 
   { type: "ponencia", 
-    title: "Integración de datos transcriptómicos multitejido para la exploración de patrones de expresión en <em>Prunus dulcis<em>.",
+    title: "Integración de datos transcriptómicos multitejido para la exploración de patrones de expresión en <em>Prunus dulcis</em>.",
     event: "Jornadas Doctorales · Universidad de Murcia",
     place: "Murcia", date: "2026-06", dateLabel: "11 jun 2026",
-    authors: "<strong>López-Fernández EM</strong>",
+
     img: "static/images/comunicaciones/jornadas-doctorales-umu.jpg" },
 
   { type: "poster",
     title: "The Almond Expression Atlas v1.0",
     event: "Escuela de Invierno Momentum · Ciencia de Datos & IA",
     place: "CSIC, Madrid", date: "2026-01", dateLabel: "26-30 ene 2026",
-    authors: "<strong>López-Fernández EM</strong>",
+
     img: "static/images/comunicaciones/escuela-invierno-momentum.jpg" }
 ];
 
@@ -775,7 +791,7 @@ const esc = s => String(s ?? "").replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt
           <img src="${esc(c.img)}" alt="${esc(c.event)}" loading="lazy" onerror="this.parentElement.remove()"></button>` : ""}
         <div class="body">
           <span class="kind kind-${c.type}"><b>${TYPES[c.type] || esc(c.type)}</b>${esc(c.dateLabel || c.date)}</span>
-          <h4>${esc(c.title)}</h4>
+          <h4>${c.title}</h4>
           <div class="event">${esc(c.event)}</div>
           <div class="where">${esc(c.place)}</div>
           ${c.authors ? `<div class="authors">${c.authors}</div>` : ""}
@@ -909,7 +925,7 @@ const esc = s => String(s ?? "").replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt
     const e = pct(r.to ? m(r.to) + 1 : TODAY);
     html += `<div class="label">${r.label}<small>${r.sub}</small></div>
              <div class="lane">
-               <div class="bar ${r.cls}" style="left:${s}%;width:${e - s}%" data-end="${e}" data-text="${r.text}" title="${r.label}"></div>
+               <div class="bar ${r.cls}" style="left:${s}%;width:${e - s}%" data-end="${e}" data-text="${r.text}" data-short="${r.short || ""}" title="${r.label}"></div>
              </div>`;
   });
 
@@ -921,8 +937,12 @@ const esc = s => String(s ?? "").replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt
     el.querySelectorAll(".lane").forEach(lane => {
       const bar = lane.querySelector(".bar");
       lane.querySelector(".bar-out")?.remove();
+      bar.classList.remove("compact");
       bar.textContent = bar.dataset.text;
+      if (bar.scrollWidth > bar.clientWidth && bar.dataset.short) bar.textContent = bar.dataset.short;
+      if (bar.scrollWidth > bar.clientWidth) bar.classList.add("compact");
       if (bar.scrollWidth > bar.clientWidth) {
+        bar.classList.remove("compact");
         bar.textContent = "";
         lane.insertAdjacentHTML("beforeend",
           `<span class="bar-out" style="left:calc(${bar.dataset.end}% + 6px)">${bar.dataset.text}</span>`);
