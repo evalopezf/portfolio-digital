@@ -199,6 +199,7 @@ details.more .body p+p{margin-top:10px}
 .course .foot .momentum{background:var(--forest);color:#fff}
 .course .foot a{margin-left:auto;color:var(--forest);text-decoration:none}
 .course .foot a:hover{text-decoration:underline}
+.course .foot .live{background:var(--apricot-soft);color:#9a4d1a}
 .empty{grid-column:1/-1;text-align:center;color:var(--ink-3);padding:30px;font-size:.9rem}
 .show-more{display:flex;justify-content:center;margin-top:18px}
 
@@ -302,7 +303,7 @@ footer .funding{font-family:var(--mono);font-size:.72rem}
 
       <figure class="figure reveal">
         <div class="photo">
-          <span class="initials">ELF</span>
+
           <img src="static/images/perfil.jpg" alt="Retrato de Eva López-Fernández" onerror="this.remove()">
         </div>
         <figcaption><b>Fig. 1.</b> Eva López-Fernández. Murcia, España. Bioquímica · Bioinformática · Programa Momentum CSIC.</figcaption>
@@ -346,21 +347,13 @@ footer .funding{font-family:var(--mono);font-size:.72rem}
         </div>
       </div>
 
-      <div class="reveal">
-        <div class="stats">
-          <div class="stat accent"><div class="v">Bioinformática</div></div>
-          <div class="stat accent"><div class="v">Bioquímica</div></div>
-          <div class="stat"><div class="v" id="statCourses">—</div><div class="l">Cursos de formación complementaria</div></div>
-          <div class="stat"><div class="v">2</div><div class="l">Proyectos de investigación </div></div>
-        </div>
-      </div>
+    
     </div>
 
     <!-- Trayectoria estilo navegador genómico -->
     <div class="trajectory reveal">
       <div class="trajectory-head">
-        <h3>Trayectoria</h3>
-        <span>vista tipo IGV · 2018 → hoy</span>
+        <h3 class="mt-4">Trayectoria</h3>
       </div>
       <div class="tl-scroll">
         <div class="tl" id="timeline"></div>
@@ -375,7 +368,6 @@ footer .funding{font-family:var(--mono);font-size:.72rem}
     <div class="sec-head reveal">
       <span class="sec-num">02 /</span>
       <h2>Proyectos de investigación</h2>
-      <p>De variantes estructurales en genomas humanos a ecosistemas digitales para la mejora genética vegetal.</p>
     </div>
 
     <div class="projects">
@@ -539,7 +531,7 @@ footer .funding{font-family:var(--mono);font-size:.72rem}
     <div class="sec-head reveal">
       <span class="sec-num">04 /</span>
       <h2>Competencias digitales</h2>
-      <p>Herramientas que uso en el día a día, del análisis de secuencias al despliegue de aplicaciones web.</p>
+
     </div>
     <div class="stack">
       <div class="stack-col reveal">
@@ -593,9 +585,31 @@ const CATEGORIES = {
 };
 
 const COURSES = [
-  { title: "Escuela de Invierno Momentum · Ciencia de Datos & IA", provider: "CSIC · Programa Momentum", cat: "ia",
-    desc: "Formación presencial en aprendizaje automático, deep learning y grandes modelos de lenguaje. Presentación de póster con resultados de transcriptómica en almendro.",
-    momentum: true },
+  // ---- En curso ----
+  { title: "Posgrado en Artificial Intelligence with Deep Learning", provider: "UPC School · Universitat Politècnica de Catalunya", cat: "ia",
+    hours: "15 ECTS", year: "2026–2027", status: "En curso",
+    desc: "Diseño y entrenamiento de redes neuronales profundas con PyTorch: visión por computador, procesamiento del lenguaje natural, Transformers, modelos generativos y proyecto final en equipo. Impartido en inglés.",
+    url: "https://upcschool.upc.edu/esp/estudis/formacio/curs/310401/postgrau-artificial-intelligence-deep-learning/" },
+  { title: "Uso estratégico de la IA generativa en ciencia e investigación", provider: "CSIC Aprende", cat: "ia",
+    hours: "4 ECTS", year: "2026", status: "En curso", momentum: true,
+    desc: "Microcredencial sobre ingeniería de prompts, escritura científica asistida, gestión de literatura, automatización de análisis y uso ético y responsable de la IA generativa en investigación.",
+    url: "https://aprende.csic.es/catalogo/uso-estrategico-de-la-ia-generativa-en-ciencia-e-investigacion/" },
+
+  // ---- Completados ----
+  { title: "Hackatón Momentum", provider: "CSIC · Estación Experimental del Zaidín", cat: "ia",
+    hours: "6 ECTS", year: "2026", momentum: true,
+    desc: "Diseño y entrenamiento de agentes de aprendizaje por refuerzo profundo en entornos de simulación, trabajando en equipo con Git/GitHub y metodologías ágiles (Scrum/Kanban). Defensa final de resultados mediante pitch.",
+    url: "https://aprende.csic.es/catalogo/hackaton-momentum/" },
+  { title: "Escuela de Verano IA y Conocimiento Abierto", provider: "CSIC", cat: "ia",
+    hours: "2,5 ECTS", year: "2026", momentum: true,
+    desc: "IA abierta, responsable y reproducible para la investigación: gobernanza del dato, principios FAIR, gemelos digitales e IA agéntica, con talleres prácticos en el track de Vida.",
+    url: "https://aprende.csic.es/catalogo/escuela-de-verano-ia-y-conocimiento-abierto/" },
+  { title: "Introduction to Programming (Python Programming MOOC)", provider: "Universidad de Helsinki", cat: "prog",
+    hours: "5 ECTS", year: "2026",
+    desc: "Fundamentos de programación en Python: algoritmos, estructuras de control, funciones y programación orientada a objetos, con ejercicios evaluados y examen final.",
+    url: "https://programming-26.mooc.fi/" },
+  { title: "Escuela de Invierno Momentum · Ciencia de Datos & IA", provider: "CSIC · Programa Momentum", cat: "ia", momentum: true,
+    desc: "Formación presencial en aprendizaje automático, deep learning y grandes modelos de lenguaje. Presentación de póster con resultados de transcriptómica en almendro." },
   { title: "Advanced Course: Applications of AI in the Agrifood Sector", provider: "CIHEAM", cat: "ia",
     desc: "Casos reales de IA en el sector agroalimentario: producción agrícola y ganadera, industria y gestión sostenible." },
   { title: "Bootcamp Data Analytics & IA", provider: "Upgrade Hub", cat: "ia", hours: "18 semanas",
@@ -651,6 +665,7 @@ const INITIAL_VISIBLE = 9; // a partir de aquí aparece "Ver todos"
         <h4>${esc(c.title)}</h4>
         <p>${esc(c.desc)}</p>
         <div class="foot">
+           ${c.status ? `<span class="pill live">${esc(c.status)}</span>` : ''}
           ${c.momentum ? '<span class="pill momentum">Momentum</span>' : ''}
           ${c.provider ? `<span class="pill">${esc(c.provider)}</span>` : ''}
           ${c.hours ? `<span class="pill">${esc(c.hours)}</span>` : ''}
@@ -678,9 +693,9 @@ const INITIAL_VISIBLE = 9; // a partir de aquí aparece "Ver todos"
 (function timeline(){
   const ROWS = [
     { label:"Grado en Bioquímica",      sub:"Universidad de Murcia",            from:"2018-09", to:"2023-06", cls:"b1", text:"Grado · Bioquímica" },
-    { label:"Técnica de laboratorio",   sub:"ITM · Cultivo in vitro (prácticas extracurriculares)", from:"2022-11", to:"2023-03", cls:"b4", text:"ITM" },
-    { label:"Máster en Bioinformática", sub:"Universidad de Murcia · Premio TFM", from:"2023-09", to:"2024-07", cls:"b2", text:"Máster · TFM" },
-    { label:"Doctorado",                sub:"CEBAS-CSIC · Programa Momentum",    from:"2024-11", to:"",        cls:"b3 live", text:"Doctorado · en curso" }
+    { label:"Técnica de laboratorio",   sub:"ITUM · Cultivo in vitro (Prácticas extracurriculares)", from:"2022-11", to:"2023-03", cls:"b4", text:"ITUM" },
+    { label:"Máster en Bioinformática", sub:"Universidad de Murcia · Premio TFM", from:"2023-09", to:"2024-07", cls:"b2", text:"Bioinformática" },
+    { label:"Doctorado",                sub:"CEBAS-CSIC · Programa Momentum",    from:"2024-11", to:"",        cls:"b3 live", text:"Doctorado · En curso" }
   ];
 
   const m = s => { const [y, mo] = s.split("-").map(Number); return y * 12 + (mo - 1); };
@@ -700,7 +715,7 @@ const INITIAL_VISIBLE = 9; // a partir de aquí aparece "Ver todos"
     const s = pct(m(r.from));
     const e = pct(r.to ? m(r.to) + 1 : TODAY);
     const w = e - s;
-    const short = w < 12;   // barra demasiado corta: el texto va fuera, a la derecha
+    const short = w < 25;   // barra demasiado corta: el texto va fuera, a la derecha
     html += `<div class="label">${r.label}<small>${r.sub}</small></div>
              <div class="lane">
                <div class="bar ${r.cls}" style="left:${s}%;width:${w}%" title="${r.label}">${short ? "" : r.text}</div>
