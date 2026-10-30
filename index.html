@@ -83,7 +83,6 @@ img{max-width:100%;display:block}
 .figure:hover{transform:rotate(0)}
 .figure .photo{aspect-ratio:4/5;border-radius:9px;overflow:hidden;background:linear-gradient(135deg,var(--mint),var(--pistachio));display:grid;place-items:center;position:relative}
 .figure .photo img{width:100%;height:100%;object-fit:cover}
-.figure .photo .initials{font-family:var(--serif);font-size:4rem;color:var(--forest);position:absolute}
 .figure figcaption{font-size:.78rem;color:var(--ink-3);padding:12px 4px 2px;line-height:1.5}
 .figure figcaption b{color:var(--ink);font-weight:600}
 
@@ -103,15 +102,13 @@ section.block{padding:88px 0 24px}
 .profile-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px}
 .pull{font-family:var(--serif);font-size:1.55rem;line-height:1.4;color:var(--forest-deep);border-left:3px solid var(--apricot);padding-left:22px;margin-bottom:26px}
 .profile-text p{color:var(--ink-2);margin-bottom:14px}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-.stat .v{font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--forest);line-height:1}
-.stat .l{font-size:.82rem;color:var(--ink-2);margin-top:8px}
-.stat.accent{background:var(--forest);border-color:var(--forest)}
-.stat.accent .v{color:var(--pistachio)}
-.stat.accent .l{color:#d9e8dc}
 .interests{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-size:.78rem;padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--ink-2)}
+
+/* Tarjeta de trayectoria */
+.trajectory{margin-top:56px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.trajectory-head{margin-bottom:20px}
+.trajectory-head h3{font-family:var(--serif);font-weight:600;font-size:1.2rem}
 
 /* Trayectoria tipo navegador genómico (IGV), escala mensual */
 .tl{display:grid;grid-template-columns:170px 1fr;row-gap:14px;align-items:center;min-width:640px}
@@ -161,6 +158,50 @@ details.more .body{color:var(--ink-2);font-size:.92rem;padding:8px 0 4px 32px}
 details.more .body p+p{margin-top:10px}
 .p-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 
+/* ---------- Comunicaciones y publicaciones ---------- */
+.comm-filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.comm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.comm{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:.25s}
+.comm:hover{border-color:var(--pistachio);transform:translateY(-2px)}
+.comm .thumb{aspect-ratio:16/10;background:var(--paper-2);overflow:hidden;cursor:zoom-in;border:none;padding:0;display:block;width:100%}
+.comm .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.comm .thumb:hover img{transform:scale(1.04)}
+.comm .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.comm .kind{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
+.comm .kind b{font-weight:500;padding:3px 8px;border-radius:5px;color:#fff;letter-spacing:.06em}
+.kind-ponencia b{background:var(--forest)}
+.kind-poster b{background:var(--apricot)}
+.comm h4{font-size:1rem;font-weight:600;line-height:1.35}
+.comm .event{font-size:.86rem;color:var(--ink-2)}
+.comm .where{font-family:var(--mono);font-size:.72rem;color:var(--ink-3)}
+.comm .authors{font-size:.8rem;color:var(--ink-3)}
+.comm .authors strong{color:var(--ink);font-weight:600}
+.comm .links{margin-top:auto;padding-top:10px;display:flex;flex-wrap:wrap;gap:14px;font-size:.82rem}
+.comm .links a{color:var(--forest);text-decoration:none}
+.comm .links a:hover{text-decoration:underline}
+
+/* Publicaciones: formato de cita */
+.pubs{margin-top:48px}
+.pubs h3{font-family:var(--serif);font-size:1.4rem;font-weight:600;margin-bottom:16px}
+.pub-list{list-style:none;display:grid;gap:12px}
+.pub{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--forest);border-radius:10px;padding:18px 20px}
+.pub .cite{font-size:.92rem;color:var(--ink-2);line-height:1.6}
+.pub .cite strong{color:var(--ink);font-weight:600}
+.pub .cite em{color:var(--ink)}
+.pub .ptitle{display:block;font-weight:600;color:var(--ink);font-size:1rem;margin-bottom:4px}
+.pub .meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px;font-family:var(--mono);font-size:.7rem}
+.pub .meta span{padding:2px 8px;border-radius:5px;background:var(--paper);color:var(--ink-3)}
+.pub .meta .prep{background:var(--apricot-soft);color:#9a4d1a}
+.pub .meta a{color:var(--forest);text-decoration:none;margin-left:auto}
+.pub-empty{font-size:.9rem;color:var(--ink-3);padding:18px 20px;border:1px dashed var(--line);border-radius:10px}
+
+/* Visor de imágenes */
+dialog.viewer{border:none;padding:0;background:transparent;max-width:min(92vw,1100px);max-height:92vh;margin:auto}
+dialog.viewer::backdrop{background:rgba(20,38,26,.82)}
+dialog.viewer img{max-width:100%;max-height:84vh;border-radius:8px;margin:0 auto}
+dialog.viewer p{color:#e7efe8;font-size:.85rem;text-align:center;margin-top:10px}
+dialog.viewer button{position:fixed;top:18px;right:22px;background:rgba(255,255,255,.12);color:#fff;border:none;width:40px;height:40px;border-radius:10px;font-size:1.3rem;cursor:pointer}
+
 /* ---------- Formación ---------- */
 .degrees{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .degree{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);position:relative}
@@ -197,9 +238,9 @@ details.more .body p+p{margin-top:10px}
 .course .foot{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:4px;padding-top:10px;border-top:1px dashed var(--line);font-family:var(--mono);font-size:.68rem;color:var(--ink-3)}
 .course .foot .pill{padding:2px 8px;border-radius:5px;background:var(--paper)}
 .course .foot .momentum{background:var(--forest);color:#fff}
+.course .foot .live{background:var(--apricot-soft);color:#9a4d1a}
 .course .foot a{margin-left:auto;color:var(--forest);text-decoration:none}
 .course .foot a:hover{text-decoration:underline}
-.course .foot .live{background:var(--apricot-soft);color:#9a4d1a}
 .empty{grid-column:1/-1;text-align:center;color:var(--ink-3);padding:30px;font-size:.9rem}
 .show-more{display:flex;justify-content:center;margin-top:18px}
 
@@ -232,11 +273,14 @@ footer .funding{font-family:var(--mono);font-size:.72rem}
 
 /* ---------- Responsive ---------- */
 @media (max-width:1000px){
-  .course-grid{grid-template-columns:repeat(2,1fr)}
+  .course-grid,.comm-grid{grid-template-columns:repeat(2,1fr)}
   .stack{grid-template-columns:1fr 1fr}
   .project{grid-template-columns:1fr}
   .project-side{flex-direction:row;flex-wrap:wrap;align-items:flex-start}
   .project-side .p-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:0 24px;width:100%}
+}
+@media (max-width:900px){
+  .nav-links a{padding:8px 8px}
 }
 @media (max-width:820px){
   .menu-toggle{display:block}
@@ -254,10 +298,11 @@ footer .funding{font-family:var(--mono);font-size:.72rem}
 }
 @media (max-width:560px){
   .wrap{padding:0 16px}
-  .course-grid,.stack{grid-template-columns:1fr}
+  .course-grid,.comm-grid,.stack{grid-template-columns:1fr}
   .project-main{padding:22px}
   .project-side .p-meta{grid-template-columns:1fr}
   .award{position:static;display:inline-block;margin-bottom:10px}
+  .trajectory{padding:20px}
 }
 </style>
 </head>
@@ -270,8 +315,9 @@ footer .funding{font-family:var(--mono);font-size:.72rem}
     <ul class="nav-links" id="navLinks">
       <li><a href="#perfil"><span class="num">01</span>Perfil</a></li>
       <li><a href="#proyectos"><span class="num">02</span>Proyectos</a></li>
-      <li><a href="#formacion"><span class="num">03</span>Formación</a></li>
-      <li><a href="#competencias"><span class="num">04</span>Competencias</a></li>
+      <li><a href="#comunicaciones"><span class="num">03</span>Comunicaciones</a></li>
+      <li><a href="#formacion"><span class="num">04</span>Formación</a></li>
+      <li><a href="#competencias"><span class="num">05</span>Competencias</a></li>
     </ul>
     <a href="mailto:emlopez@cebas.csic.es" class="btn btn-solid">Contacto</a>
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
@@ -303,7 +349,6 @@ footer .funding{font-family:var(--mono);font-size:.72rem}
 
       <figure class="figure reveal">
         <div class="photo">
-
           <img src="static/images/perfil.jpg" alt="Retrato de Eva López-Fernández" onerror="this.remove()">
         </div>
         <figcaption><b>Fig. 1.</b> Eva López-Fernández. Murcia, España. Bioquímica · Bioinformática · Programa Momentum CSIC.</figcaption>
@@ -332,7 +377,6 @@ footer .funding{font-family:var(--mono);font-size:.72rem}
     <div class="sec-head reveal">
       <span class="sec-num">01 /</span>
       <h2>Perfil</h2>
-     
     </div>
 
     <div class="profile-grid">
@@ -346,14 +390,12 @@ footer .funding{font-family:var(--mono);font-size:.72rem}
           <span class="chip">Desarrollo web científico</span><span class="chip">Bases de datos</span><span class="chip">IA aplicada</span>
         </div>
       </div>
-
-    
     </div>
 
     <!-- Trayectoria estilo navegador genómico -->
     <div class="trajectory reveal">
       <div class="trajectory-head">
-        <h3 class="mt-4">Trayectoria</h3>
+        <h3>Trayectoria</h3>
       </div>
       <div class="tl-scroll">
         <div class="tl" id="timeline"></div>
@@ -416,7 +458,7 @@ footer .funding{font-family:var(--mono);font-size:.72rem}
           <details class="more"><summary>Avances actuales</summary><div class="body">
             <p><strong>Repositorio web.</strong> Plataforma para la gestión de datos de germoplasma con búsqueda avanzada, carga de datos genómicos, visualización de expresión génica y exportación en formatos estándar.</p>
             <p><strong>Base de datos relacional.</strong> Diseño del esquema para almacenar la información del programa, con control de versiones para el seguimiento de cambios.</p>
-            <p><strong>Transcriptómica en almendro.</strong> Resultados presentados en la sesión de pósters de la Escuela de Invierno Momentum.</p>
+            <p><strong>Transcriptómica en almendro.</strong> Resultados presentados en varios congresos y jornadas (ver <a href="#comunicaciones">Comunicaciones</a>).</p>
           </div></details>
           <details class="more"><summary>Reflexión personal</summary><div class="body">
             <p>Este proyecto me está dando experiencia real en dos áreas que siempre me han apasionado: el desarrollo web y los sistemas de bases de datos en un entorno científico. Estoy aprendiendo a traducir necesidades científicas en soluciones funcionales y a comunicarme en un equipo donde conviven biólogos, informáticos y mejoradores. Contribuir a la agricultura sostenible y la seguridad alimentaria es especialmente motivador.</p>
@@ -476,11 +518,30 @@ footer .funding{font-family:var(--mono);font-size:.72rem}
   </div>
 </section>
 
-<!-- ================= 03 FORMACIÓN ================= -->
-<section class="block" id="formacion">
+<!-- ================= 03 COMUNICACIONES ================= -->
+<section class="block" id="comunicaciones">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-num">03 /</span>
+      <h2>Comunicaciones y publicaciones</h2>
+      <p>Congresos, jornadas y ponencias donde he presentado mi trabajo.</p>
+    </div>
+
+    <div class="comm-filters reveal" id="commFilters" role="group" aria-label="Filtrar comunicaciones"></div>
+    <div class="comm-grid" id="commGrid"></div>
+
+    <div class="pubs reveal">
+      <h3>Publicaciones</h3>
+      <ul class="pub-list" id="pubList"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 FORMACIÓN ================= -->
+<section class="block" id="formacion">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">04 /</span>
       <h2>Formación</h2>
       <p>Una base sólida en ciencias de la vida, ampliada con formación continua en datos, programación e inteligencia artificial.</p>
     </div>
@@ -525,13 +586,12 @@ footer .funding{font-family:var(--mono);font-size:.72rem}
   </div>
 </section>
 
-<!-- ================= 04 COMPETENCIAS ================= -->
+<!-- ================= 05 COMPETENCIAS ================= -->
 <section class="block" id="competencias">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-num">04 /</span>
+      <span class="sec-num">05 /</span>
       <h2>Competencias digitales</h2>
-
     </div>
     <div class="stack">
       <div class="stack-col reveal">
@@ -571,10 +631,70 @@ footer .funding{font-family:var(--mono);font-size:.72rem}
   </footer>
 </div>
 
+<!-- Visor de imágenes de comunicaciones -->
+<dialog class="viewer" id="viewer">
+  <button type="button" aria-label="Cerrar" id="viewerClose">×</button>
+  <img id="viewerImg" alt="">
+  <p id="viewerCap"></p>
+</dialog>
+
 <script>
 /* =========================================================
+   COMUNICACIONES — copia un bloque { ... } para añadir una.
+   type: "ponencia" | "poster"
+   date: "AAAA-MM" (sirve para ordenar, de más reciente a más antigua)
+   img:  ruta a la foto (si no existe, la tarjeta se muestra sin imagen)
+   Opcionales: authors, pdf, url
+   ⚠️ Rellena los campos marcados con TODO antes de publicar.
+   ========================================================= */
+const COMMS = [
+  { type: "ponencia",
+    title: "FruitDBase | Primer atlas de expresión génica en almendro",
+    event: "Escuela de Verano IA y Conocimiento Abierto",
+    place: "CSIC, Madrid", date: "2026-07", dateLabel: "13–16 jul 2026",
+    authors: "<strong>López-Fernández EM</strong>",
+    img: "static/images/comunicaciones/escuela-verano-2026.jpg",
+    url: "https://aprende.csic.es/catalogo/escuela-de-verano-ia-y-conocimiento-abierto/" },
+
+  { type: "ponencia", 
+    title: "The Almond Expression Atlas v1.0",
+    event: "IX International Symposium on Almonds and Pistachios (ISHS)",
+    place: "Lleida", date: "2026-05", dateLabel: "3–7 may 2026",
+    authors: "<strong>López-Fernández EM</strong>, … , Martínez-García PJ",
+    img: "static/images/comunicaciones/almond-pistachio-2026.jpg",
+    url: "https://almondpistachio2026.com/" },
+
+  { type: "ponencia", 
+    title: "Integración de datos transcriptómicos multitejido para la exploración de patrones de expresión en <em>Prunus dulcis<em>.",
+    event: "Jornadas Doctorales · Universidad de Murcia",
+    place: "Murcia", date: "2026-06", dateLabel: "11 jun 2026",
+    authors: "<strong>López-Fernández EM</strong>",
+    img: "static/images/comunicaciones/jornadas-doctorales-umu.jpg" },
+
+  { type: "poster",
+    title: "The Almond Expression Atlas v1.0",
+    event: "Escuela de Invierno Momentum · Ciencia de Datos & IA",
+    place: "CSIC, Madrid", date: "2026-01", dateLabel: "26-30 ene 2026",
+    authors: "<strong>López-Fernández EM</strong>",
+    img: "static/images/comunicaciones/escuela-invierno-momentum.jpg" }
+];
+
+/* =========================================================
+   PUBLICACIONES — formato cita. status opcional: "En preparación",
+   "Enviado", "En revisión". Si la lista está vacía se muestra un aviso.
+   ========================================================= */
+const PUBS = [
+  /* Ejemplo (borra los comentarios y rellena):
+  { title: "Título del artículo",
+    authors: "<strong>López-Fernández EM</strong>, Autor B, Martínez-García PJ",
+    journal: "Nombre de la revista", year: "2026",
+    doi: "10.xxxx/xxxxx", status: "" },
+  */
+];
+
+/* =========================================================
    CURSOS — para añadir uno nuevo, copia un bloque { ... }
-   Campos: title, provider, cat, desc, hours, year, momentum, url
+   Campos: title, provider, cat, desc, hours, year, status, momentum, url
    Categorías: "ia" | "prog" | "web" | "ciencia"
    ========================================================= */
 const CATEGORIES = {
@@ -631,6 +751,83 @@ const COURSES = [
 
 const INITIAL_VISIBLE = 9; // a partir de aquí aparece "Ver todos"
 
+const esc = s => String(s ?? "").replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+
+/* ---------- Render de comunicaciones ---------- */
+(function comms(){
+  const grid = document.getElementById("commGrid");
+  const filtersEl = document.getElementById("commFilters");
+  const TYPES = { ponencia: "Ponencia", poster: "Póster" };
+  let active = "all";
+
+  const sorted = [...COMMS].sort((a,b) => (b.date||"").localeCompare(a.date||""));
+  const count = t => sorted.filter(c => c.type === t).length;
+  filtersEl.innerHTML =
+    `<button class="filter" data-t="all" aria-pressed="true">Todas<span class="c">${sorted.length}</span></button>` +
+    Object.entries(TYPES).filter(([k]) => count(k)).map(([k,v]) =>
+      `<button class="filter" data-t="${k}" aria-pressed="false">${v}s<span class="c">${count(k)}</span></button>`).join("");
+
+  function render(){
+    const list = sorted.filter(c => active === "all" || c.type === active);
+    grid.innerHTML = list.map(c => `
+      <article class="comm reveal in">
+        ${c.img ? `<button class="thumb" type="button" data-img="${esc(c.img)}" data-cap="${esc(c.event)}" aria-label="Ampliar imagen">
+          <img src="${esc(c.img)}" alt="${esc(c.event)}" loading="lazy" onerror="this.parentElement.remove()"></button>` : ""}
+        <div class="body">
+          <span class="kind kind-${c.type}"><b>${TYPES[c.type] || esc(c.type)}</b>${esc(c.dateLabel || c.date)}</span>
+          <h4>${esc(c.title)}</h4>
+          <div class="event">${esc(c.event)}</div>
+          <div class="where">${esc(c.place)}</div>
+          ${c.authors ? `<div class="authors">${c.authors}</div>` : ""}
+          ${(c.pdf || c.url) ? `<div class="links">
+            ${c.pdf ? `<a href="${esc(c.pdf)}" target="_blank" rel="noopener">Ver PDF ↗</a>` : ""}
+            ${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener">Web del evento ↗</a>` : ""}
+          </div>` : ""}
+        </div>
+      </article>`).join("");
+  }
+
+  filtersEl.addEventListener("click", e => {
+    const b = e.target.closest(".filter"); if (!b) return;
+    active = b.dataset.t;
+    filtersEl.querySelectorAll(".filter").forEach(x => x.setAttribute("aria-pressed", x === b));
+    render();
+  });
+  render();
+
+  /* Visor */
+  const viewer = document.getElementById("viewer");
+  grid.addEventListener("click", e => {
+    const t = e.target.closest(".thumb"); if (!t) return;
+    document.getElementById("viewerImg").src = t.dataset.img;
+    document.getElementById("viewerImg").alt = t.dataset.cap;
+    document.getElementById("viewerCap").textContent = t.dataset.cap;
+    viewer.showModal();
+  });
+  document.getElementById("viewerClose").addEventListener("click", () => viewer.close());
+  viewer.addEventListener("click", e => { if (e.target === viewer) viewer.close(); });
+})();
+
+/* ---------- Render de publicaciones ---------- */
+(function pubs(){
+  const el = document.getElementById("pubList");
+  if (!PUBS.length) {
+    el.innerHTML = `<li class="pub-empty">Primeras publicaciones en preparación.</li>`;
+    return;
+  }
+  el.innerHTML = PUBS.map(p => `
+    <li class="pub">
+      <div class="cite">
+        <span class="ptitle">${esc(p.title)}</span>
+        ${p.authors}${p.year ? ` (${esc(p.year)})` : ""}. <em>${esc(p.journal)}</em>.
+      </div>
+      <div class="meta">
+        ${p.status ? `<span class="prep">${esc(p.status)}</span>` : ""}
+        ${p.doi ? `<span>DOI ${esc(p.doi)}</span><a href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener">Leer artículo ↗</a>` : ""}
+      </div>
+    </li>`).join("");
+})();
+
 /* ---------- Render de cursos ---------- */
 (function courses(){
   const grid = document.getElementById("courseGrid");
@@ -640,16 +837,12 @@ const INITIAL_VISIBLE = 9; // a partir de aquí aparece "Ver todos"
   const moreBtn = document.getElementById("showMore");
   let active = "all", query = "", expanded = false;
 
-  document.getElementById("statCourses").textContent = COURSES.length;
-
   const counts = COURSES.reduce((a,c)=>(a[c.cat]=(a[c.cat]||0)+1,a),{});
   const btn = (key,label,n) =>
     `<button class="filter" data-cat="${key}" aria-pressed="${key===active}">${label}<span class="c">${n}</span></button>`;
   filtersEl.innerHTML = btn("all","Todos",COURSES.length) +
     (COURSES.some(c=>c.momentum) ? btn("momentum","Momentum",COURSES.filter(c=>c.momentum).length) : "") +
     Object.entries(CATEGORIES).filter(([k])=>counts[k]).map(([k,v])=>btn(k,v.label,counts[k])).join("");
-
-  const esc = s => String(s).replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
 
   function render(){
     const q = query.trim().toLowerCase();
@@ -665,7 +858,7 @@ const INITIAL_VISIBLE = 9; // a partir de aquí aparece "Ver todos"
         <h4>${esc(c.title)}</h4>
         <p>${esc(c.desc)}</p>
         <div class="foot">
-           ${c.status ? `<span class="pill live">${esc(c.status)}</span>` : ''}
+          ${c.status ? `<span class="pill live">${esc(c.status)}</span>` : ''}
           ${c.momentum ? '<span class="pill momentum">Momentum</span>' : ''}
           ${c.provider ? `<span class="pill">${esc(c.provider)}</span>` : ''}
           ${c.hours ? `<span class="pill">${esc(c.hours)}</span>` : ''}
@@ -700,9 +893,9 @@ const INITIAL_VISIBLE = 9; // a partir de aquí aparece "Ver todos"
 
   const m = s => { const [y, mo] = s.split("-").map(Number); return y * 12 + (mo - 1); };
   const now = new Date();
-  const TODAY = now.getFullYear() * 12 + now.getMonth() + 1;   // final del mes actual
-  const A = m("2018-01");                                       // inicio del eje
-  const B = (now.getFullYear() + 1) * 12;                       // fin del año actual
+  const TODAY = now.getFullYear() * 12 + now.getMonth() + 1;
+  const A = m("2018-01");
+  const B = (now.getFullYear() + 1) * 12;
   const pct = v => ((v - A) / (B - A)) * 100;
 
   let html = `<div></div><div class="axis-row">`;
@@ -714,16 +907,31 @@ const INITIAL_VISIBLE = 9; // a partir de aquí aparece "Ver todos"
   ROWS.forEach(r => {
     const s = pct(m(r.from));
     const e = pct(r.to ? m(r.to) + 1 : TODAY);
-    const w = e - s;
-    const short = w < 25;   // barra demasiado corta: el texto va fuera, a la derecha
     html += `<div class="label">${r.label}<small>${r.sub}</small></div>
              <div class="lane">
-               <div class="bar ${r.cls}" style="left:${s}%;width:${w}%" title="${r.label}">${short ? "" : r.text}</div>
-               ${short ? `<span class="bar-out" style="left:calc(${e}% + 6px)">${r.text}</span>` : ""}
+               <div class="bar ${r.cls}" style="left:${s}%;width:${e - s}%" data-end="${e}" data-text="${r.text}" title="${r.label}"></div>
              </div>`;
   });
 
-  document.getElementById("timeline").innerHTML = html;
+  const el = document.getElementById("timeline");
+  el.innerHTML = html;
+
+  // Pone el texto dentro de la barra si cabe; si no, a la derecha
+  function fit(){
+    el.querySelectorAll(".lane").forEach(lane => {
+      const bar = lane.querySelector(".bar");
+      lane.querySelector(".bar-out")?.remove();
+      bar.textContent = bar.dataset.text;
+      if (bar.scrollWidth > bar.clientWidth) {
+        bar.textContent = "";
+        lane.insertAdjacentHTML("beforeend",
+          `<span class="bar-out" style="left:calc(${bar.dataset.end}% + 6px)">${bar.dataset.text}</span>`);
+      }
+    });
+  }
+  fit();
+  window.addEventListener("resize", fit);
+  document.fonts?.ready.then(fit);
 })();
 
 /* ---------- Menú móvil, nav activa, animaciones ---------- */
