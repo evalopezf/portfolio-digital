@@ -699,12 +699,11 @@ const COMMS = [
    "Enviado", "En revisión". Si la lista está vacía se muestra un aviso.
    ========================================================= */
 const PUBS = [
-  /* Ejemplo (borra los comentarios y rellena):
-  { title: "Título del artículo",
-    authors: "<strong>López-Fernández EM</strong>, Autor B, Martínez-García PJ",
-    journal: "Nombre de la revista", year: "2026",
-    doi: "10.xxxx/xxxxx", status: "" },
-  */
+  { title: "The Almond Expression Atlas: A comprehensive multi-tissue transcriptomic resource for almond gene expression",
+    authors: "<strong>López-Fernández Eva M.</strong>, MA Zwieniecki, A. Tixier, Juan A. Botía,Pedro J. Martínez-García",
+    journal: "bioRxiv", year: "2026",
+    doi:  "https://doi.org/10.64898/2026.10.30.763019", status:"pre-print" },
+  
 ];
 
 /* =========================================================
@@ -765,9 +764,7 @@ const COURSES = [
     desc: "Análisis de ADN aplicado a la investigación criminal y sus consideraciones legales." }
 ];
 
-const PUBS = [{doi: "https://doi.org/10.64898/2026.10.30.763019", authors:"Eva M. López-Fernández, MA Zwieniecki, A. Tixier, Juan A. Botía,  View ORCID ProfilePedro J. Martínez-García",
-               year: "2026", status:"pre-print", title:"The Almond Expression Atlas: A comprehensive multi-tissue transcriptomic resource for almond gene expression"
-}];
+
 const INITIAL_VISIBLE = 9; // a partir de aquí aparece "Ver todos"
 
 const esc = s => String(s ?? "").replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
